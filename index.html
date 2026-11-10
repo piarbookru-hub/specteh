@@ -2,869 +2,574 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COCA-COLA в алюминиевых банках — Оптовые поставки по всей России</title>
-    <meta name="description" content="Оригинальная Coca-Cola в алюминиевых банках 330 мл. Оптовые поставки, быстрая доставка, лучшие цены. Classic, Zero, Light, Vanilla, Cherry.">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="ru">
+
+    <title>Спецтехника и эвакуатор — демонтаж, земляные работы, вывоз мусора | Подача в день обращения</title>
+    <meta name="description" content="Аренда спецтехники с оператором: эвакуатор с манипулятором, экскаватор-погрузчик. Демонтаж, земляные работы, вывоз мусора, благоустройство. Подача техники в день обращения.">
+    <link rel="canonical" href="https://spectehnika-demo.ru/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Спецтехника для ваших задач — подача в день обращения">
+    <meta property="og:description" content="Эвакуатор с манипулятором и экскаватор-погрузчик. Демонтаж, земляные работы, вывоз мусора.">
+    <meta property="og:image" content="https://spectehnika-demo.ru/images/hero-evacuator.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#0D0D0D">
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
-            --coca-red: #F40009;
-            --coca-dark: #8B0000;
-            --aluminum: #C0C0C0;
-            --aluminum-light: #E8E8E8;
-            --bg-dark: #0a0a0a;
-            --bg-card: #141414;
-            --text-main: #ffffff;
-            --text-muted: #a0a0a0;
-            --accent: #F40009;
+            --bg-dark: #0D0D0D;
+            --bg-card: #161616;
+            --accent: #FFD400;
+            --accent-dark: #E0BB00;
+            --text-main: #FFFFFF;
+            --text-muted: #A6A6A6;
+            --border: rgba(255, 212, 0, 0.25);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            background: var(--bg-dark); 
-            color: var(--text-main); 
-            line-height: 1.6; 
-            overflow-x: hidden; 
-        }
-        h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 1px; }
-        a { text-decoration: none; color: inherit; transition: all 0.3s; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Oswald', sans-serif; text-transform: uppercase; line-height: 1.15; text-wrap: balance; }
+        a { color: inherit; text-decoration: none; transition: color 0.3s; }
         img { max-width: 100%; height: auto; display: block; }
-        section { scroll-margin-top: 80px; }
+        section { scroll-margin-top: 80px; padding: 40px 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        /* Placeholder для изображений */
-        .img-wrapper { position: relative; background: var(--bg-card); overflow: hidden; border-radius: 12px; }
+        /* Фон: текстура + виньетка */
+        .bg-fixed { position: fixed; inset: 0; z-index: -2; background: var(--bg-dark); }
+        .bg-fixed::before {
+            content: ''; position: absolute; inset: 0;
+            background: url('images/bg-texture.jpg') center/cover;
+            opacity: 0.12; filter: blur(3px);
+        }
+        .bg-fixed::after {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 15% 20%, rgba(255, 212, 0, 0.07) 0%, transparent 45%),
+                        radial-gradient(circle at 85% 75%, rgba(22, 22, 22, 0.9) 0%, transparent 55%);
+        }
+
+        /* Заглушки фото: клик по имени файла копирует его */
+        .img-wrapper { position: relative; background: var(--bg-card); overflow: visible; border-radius: 8px; border: 1px solid var(--border); }
         .placeholder-label {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            z-index: 3; text-align: center; padding: 16px;
-            background: rgba(10, 10, 10, 0.95); border: 1px dashed var(--coca-red);
-            border-radius: 8px; max-width: 85%;
+            z-index: 3; text-align: center; padding: 12px;
+            background: rgba(13, 13, 13, 0.95); border: 1px dashed var(--accent);
+            border-radius: 8px; max-width: 90%;
         }
-        .placeholder-label strong { display: block; font-family: monospace; font-size: 12px; color: var(--coca-red); margin-bottom: 6px; }
+        .placeholder-label strong {
+            display: block; font-family: monospace; font-size: 12px; color: var(--accent);
+            margin-bottom: 4px; cursor: pointer; text-decoration: underline; word-break: break-all;
+        }
         .placeholder-label span { font-size: 11px; color: var(--text-muted); }
-        .img-wrapper img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; }
-        .img-wrapper img[src=""], .img-wrapper img[onerror] { display: none; }
+        .img-wrapper img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; border-radius: 8px; cursor: zoom-in; }
+        .img-wrapper img:not([src]) { display: none; }
 
         /* Навигация */
-        nav { 
-            position: fixed; top: 0; width: 100%; z-index: 1000; 
-            background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(12px); 
-            border-bottom: 2px solid var(--coca-red); padding: 14px 0; 
-        }
-        .nav-container { 
-            max-width: 1200px; margin: 0 auto; padding: 0 20px; 
-            display: flex; justify-content: space-between; align-items: center; 
-        }
-        .logo { 
-            font-family: 'Oswald', sans-serif; font-size: 26px; font-weight: 900; 
-            color: var(--text-main); letter-spacing: 2px; 
-        }
-        .logo span { color: var(--coca-red); }
-        .nav-links { display: flex; gap: 28px; list-style: none; }
-        .nav-links a { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-links a:hover { color: var(--coca-red); }
-        .nav-phone { font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 6px; }
-        .nav-phone i { color: var(--coca-red); }
-        .burger { display: none; background: none; border: none; color: var(--text-main); font-size: 24px; cursor: pointer; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(13, 13, 13, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 12px 0; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+        .logo { font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 24px; list-style: none; }
+        .nav-links a { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-phone { font-weight: 700; font-size: 15px; white-space: nowrap; }
+        .nav-phone:hover { color: var(--accent); }
+        .burger { display: none; background: none; border: none; color: var(--accent); font-size: 24px; cursor: pointer; }
 
-        /* Hero секция */
-        .hero {
-            min-height: 100vh; padding: 120px 20px 60px;
-            background: 
-                radial-gradient(circle at 30% 50%, rgba(244, 0, 9, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(192, 192, 192, 0.1) 0%, transparent 40%),
-                linear-gradient(135deg, #0a0a0a 0%, #1a0000 100%);
-            display: flex; align-items: center; position: relative; overflow: hidden;
-        }
+        /* Hero */
+        .hero { position: relative; padding: 110px 0 50px; overflow: hidden; }
         .hero::before {
-            content: ''; position: absolute; top: -50%; right: -20%;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(244, 0, 9, 0.2) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
+            content: ''; position: absolute; inset: 0;
+            background: url('images/hero-bg.jpg') center/cover;
+            opacity: 0.55; filter: blur(2px); z-index: -1;
         }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
+        .hero::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(13,13,13,0.55) 0%, rgba(13,13,13,0.85) 70%, var(--bg-dark) 100%);
+            z-index: -1;
         }
-        .hero-container {
-            max-width: 1200px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-            position: relative; z-index: 2;
+        .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center; }
+        .hero h1 { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 700; letter-spacing: 1px; }
+        .hero h1 span { display: block; color: var(--accent); font-size: clamp(1.4rem, 3.5vw, 2.2rem); margin-top: 8px; }
+        .hero-services { margin: 20px 0 24px; color: var(--text-muted); font-size: 1rem; }
+        .hero-services b { color: var(--text-main); font-weight: 600; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 14px;
+            border: 1px solid var(--accent); border-radius: 10px; padding: 12px 18px;
+            margin-bottom: 24px;
         }
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            line-height: 1; margin-bottom: 24px;
-            text-shadow: 0 0 30px rgba(244, 0, 9, 0.5);
-        }
-        .hero-content h1 span { color: var(--coca-red); display: block; }
-        .hero-content .tagline {
-            font-size: 1.2rem; color: var(--text-muted); margin-bottom: 32px;
-            max-width: 500px;
-        }
-        .hero-badges { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
-        .badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 10px 18px; background: rgba(244, 0, 9, 0.1);
-            border: 1px solid var(--coca-red); border-radius: 50px;
-            font-size: 0.85rem; font-weight: 600;
-        }
-        .badge i { color: var(--coca-red); }
+        .hero-badge i { font-size: 26px; color: var(--accent); }
+        .hero-badge strong { display: block; font-family: 'Oswald', sans-serif; text-transform: uppercase; color: var(--accent); font-size: 15px; letter-spacing: 1px; }
+        .hero-badge span { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); }
+        .hero-photo { height: 340px; }
         .btn {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 16px 36px; background: var(--coca-red); color: white;
-            font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
-            font-size: 14px; border-radius: 50px; border: 2px solid var(--coca-red);
-            transition: all 0.3s; cursor: pointer; font-family: inherit;
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 14px 30px; background: var(--accent); color: #0D0D0D;
+            font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 15px;
+            text-transform: uppercase; letter-spacing: 1px; border: 2px solid var(--accent);
+            border-radius: 6px; cursor: pointer; transition: all 0.3s;
         }
-        .btn:hover { background: transparent; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(244, 0, 9, 0.4); }
+        .btn:hover { background: transparent; color: var(--accent); }
         .btn-outline { background: transparent; color: var(--text-main); border-color: var(--text-main); }
-        .btn-outline:hover { background: var(--text-main); color: var(--bg-dark); }
-        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-outline:hover { background: var(--text-main); color: #0D0D0D; }
+        .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-        .hero-image {
-            position: relative; height: 600px;
-            display: flex; align-items: center; justify-content: center;
+        /* Услуги: жёлтый скошенный блок + 4 пункта */
+        .services-head { display: grid; grid-template-columns: 0.9fr 2.1fr; gap: 24px; align-items: center; margin-bottom: 8px; }
+        .skew-box {
+            background: var(--accent); color: #0D0D0D; transform: skew(-10deg);
+            padding: 22px 26px; border-radius: 4px;
         }
-        .hero-can {
-            width: 280px; height: 500px;
-            background: linear-gradient(135deg, #F40009 0%, #8B0000 100%);
-            border-radius: 20px 20px 100px 100px;
-            position: relative;
-            box-shadow: 
-                0 20px 60px rgba(244, 0, 9, 0.4),
-                inset -20px 0 40px rgba(0, 0, 0, 0.3),
-                inset 20px 0 40px rgba(255, 255, 255, 0.1);
-            animation: float 3s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(-5deg); }
-            50% { transform: translateY(-20px) rotate(-5deg); }
-        }
-        .hero-can::before {
-            content: 'COCA-COLA'; position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%) rotate(-90deg);
-            font-family: 'Oswald', sans-serif; font-size: 48px; font-weight: 900;
-            color: white; letter-spacing: 4px; white-space: nowrap;
-        }
-        .hero-can::after {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 30px;
-            background: linear-gradient(180deg, #C0C0C0 0%, #808080 100%);
-            border-radius: 20px 20px 0 0;
-        }
+        .skew-box > div { transform: skew(10deg); }
+        .skew-box h2 { font-size: clamp(1.2rem, 2.6vw, 1.7rem); font-weight: 700; }
+        .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .service-item { text-align: center; padding: 16px 8px; border-left: 1px solid var(--border); }
+        .service-item:first-child { border-left: none; }
+        .service-item i { font-size: 34px; color: var(--accent); margin-bottom: 12px; }
+        .service-item h3 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.5px; }
 
-        /* Общие стили секций */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        section.content { padding: 80px 0; }
-        .section-header { text-align: center; margin-bottom: 48px; }
-        .section-header h2 { 
-            font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px; 
+        /* Галерея работ */
+        .section-title { font-size: clamp(1.5rem, 3.5vw, 2.2rem); text-align: center; margin-bottom: 8px; }
+        .section-title span { color: var(--accent); }
+        .section-sub { text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 28px; font-size: 0.95rem; }
+        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .gallery-item { height: 260px; }
+        .gallery-tag {
+            position: absolute; left: 0; bottom: 16px; z-index: 4;
+            background: var(--accent); color: #0D0D0D;
+            font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 13px;
+            text-transform: uppercase; letter-spacing: 1px;
+            padding: 6px 16px 6px 12px; border-radius: 0 4px 4px 0;
         }
-        .section-header h2 span { color: var(--coca-red); }
-        .section-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1.05rem; }
 
         /* Преимущества */
-        .advantages { background: var(--bg-card); }
-        .adv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
-        .adv-card {
-            background: var(--bg-dark); padding: 32px 24px; border-radius: 16px;
-            border: 1px solid rgba(244, 0, 9, 0.2); transition: all 0.3s;
-            text-align: center;
-        }
-        .adv-card:hover { transform: translateY(-8px); border-color: var(--coca-red); box-shadow: 0 20px 40px rgba(244, 0, 9, 0.2); }
-        .adv-icon {
-            width: 70px; height: 70px; margin: 0 auto 20px;
-            background: linear-gradient(135deg, var(--coca-red), var(--coca-dark));
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 28px; color: white;
-        }
-        .adv-card h3 { font-size: 1.2rem; margin-bottom: 12px; font-family: 'Montserrat', sans-serif; }
-        .adv-card p { color: var(--text-muted); font-size: 0.95rem; }
-
-        /* Ассортимент */
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
-        .product-card {
-            background: var(--bg-card); border-radius: 16px; overflow: hidden;
-            border: 1px solid rgba(244, 0, 9, 0.2); transition: all 0.3s;
-            position: relative;
-        }
-        .product-card:hover { transform: translateY(-8px); border-color: var(--coca-red); }
-        .product-image { height: 280px; position: relative; overflow: hidden; }
-        .product-can {
-            width: 100%; height: 100%;
-            display: flex; align-items: center; justify-content: center;
-            position: relative;
-        }
-        .can-visual {
-            width: 120px; height: 220px;
-            border-radius: 15px 15px 60px 60px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s;
-        }
-        .product-card:hover .can-visual { transform: scale(1.1) rotate(-5deg); }
-        .can-visual::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 20px;
-            background: linear-gradient(180deg, #C0C0C0, #808080);
-            border-radius: 15px 15px 0 0;
-        }
-        .can-classic { background: linear-gradient(135deg, #F40009, #8B0000); }
-        .can-zero { background: linear-gradient(135deg, #1a1a1a, #000000); border: 2px solid #333; }
-        .can-light { background: linear-gradient(135deg, #C0C0C0, #808080); }
-        .can-vanilla { background: linear-gradient(135deg, #F5DEB3, #D2B48C); }
-        .can-cherry { background: linear-gradient(135deg, #8B0000, #4a0000); }
-        .can-visual::after {
-            content: attr(data-name); position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%) rotate(-90deg);
-            font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 700;
-            color: white; letter-spacing: 2px; white-space: nowrap;
-        }
-        .can-zero::after, .can-light::after { color: #F40009; }
-        .product-info { padding: 20px; }
-        .product-info h3 { font-size: 1.1rem; margin-bottom: 8px; font-family: 'Montserrat', sans-serif; }
-        .product-info .volume { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px; }
-        .product-price { 
-            font-size: 1.3rem; font-weight: 700; color: var(--coca-red); 
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .product-price .old-price { font-size: 0.9rem; color: var(--text-muted); text-decoration: line-through; font-weight: 400; }
-
-        /* Почему мы */
-        .why-us { background: linear-gradient(135deg, #1a0000 0%, #0a0a0a 100%); }
-        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
-        .why-item { display: flex; gap: 20px; align-items: flex-start; }
-        .why-num {
-            font-family: 'Oswald', sans-serif; font-size: 3rem; font-weight: 900;
-            color: var(--coca-red); line-height: 1; flex-shrink: 0;
-        }
-        .why-item h3 { font-size: 1.2rem; margin-bottom: 8px; font-family: 'Montserrat', sans-serif; }
-        .why-item p { color: var(--text-muted); font-size: 0.95rem; }
-
-        /* Отзывы */
-        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-        .review-card {
-            background: var(--bg-card); padding: 28px; border-radius: 16px;
-            border: 1px solid rgba(244, 0, 9, 0.2); position: relative;
-        }
-        .review-card::before {
-            content: '"'; position: absolute; top: -10px; left: 20px;
-            font-size: 5rem; color: var(--coca-red); opacity: 0.3;
-            font-family: serif; line-height: 1;
-        }
-        .review-stars { color: var(--coca-red); margin-bottom: 12px; font-size: 0.9rem; }
-        .review-text { font-style: italic; margin-bottom: 16px; color: var(--text-muted); line-height: 1.7; }
-        .review-author { display: flex; align-items: center; gap: 12px; }
-        .review-ava {
-            width: 45px; height: 45px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--coca-red), var(--coca-dark));
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 700; color: white;
-        }
-        .review-author strong { display: block; font-size: 0.95rem; }
-        .review-author span { font-size: 0.8rem; color: var(--text-muted); }
-
-        /* Форма заказа с калькулятором */
-        .order-section { background: var(--bg-card); }
-        .order-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-        .calculator {
-            background: var(--bg-dark); padding: 32px; border-radius: 16px;
-            border: 2px solid var(--coca-red);
-        }
-        .calculator h3 { font-size: 1.5rem; margin-bottom: 24px; font-family: 'Montserrat', sans-serif; }
-        .calc-row { margin-bottom: 24px; }
-        .calc-label { display: block; font-weight: 600; margin-bottom: 12px; font-size: 0.95rem; }
-        .flavor-select {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
-        }
-        .flavor-option {
-            padding: 12px; background: var(--bg-card); border: 2px solid transparent;
-            border-radius: 8px; cursor: pointer; transition: all 0.3s;
-            text-align: center; font-size: 0.9rem; font-weight: 600;
-        }
-        .flavor-option:hover { border-color: var(--coca-red); }
-        .flavor-option.active { border-color: var(--coca-red); background: rgba(244, 0, 9, 0.1); }
-        .flavor-option input { display: none; }
-        
-        .quantity-control {
+        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .why-item {
             display: flex; align-items: center; gap: 16px;
-            background: var(--bg-card); padding: 12px; border-radius: 8px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 8px; padding: 20px;
         }
-        .qty-btn {
-            width: 40px; height: 40px; background: var(--coca-red); color: white;
-            border: none; border-radius: 8px; font-size: 1.2rem; font-weight: 700;
-            cursor: pointer; transition: all 0.3s;
+        .why-item i {
+            font-size: 30px; color: var(--accent);
+            border: 1px solid var(--accent); border-radius: 8px; padding: 12px; flex-shrink: 0;
         }
-        .qty-btn:hover { background: var(--coca-dark); }
-        .qty-value { flex: 1; text-align: center; font-size: 1.5rem; font-weight: 700; }
-        
-        .calc-result {
-            background: linear-gradient(135deg, var(--coca-red), var(--coca-dark));
-            padding: 24px; border-radius: 12px; text-align: center;
-        }
-        .result-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; opacity: 0.9; }
-        .result-price { font-size: 2.5rem; font-weight: 900; font-family: 'Oswald', sans-serif; }
-        .result-details { margin-top: 12px; font-size: 0.85rem; opacity: 0.9; }
+        .why-item h3 { font-size: 1rem; font-weight: 600; }
 
-        .order-form { background: var(--bg-dark); padding: 32px; border-radius: 16px; border: 1px solid rgba(244, 0, 9, 0.3); }
-        .order-form h3 { font-size: 1.5rem; margin-bottom: 24px; font-family: 'Montserrat', sans-serif; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%; padding: 14px 16px; background: var(--bg-card);
-            border: 1px solid rgba(244, 0, 9, 0.3); border-radius: 8px;
-            color: var(--text-main); font-family: inherit; font-size: 15px;
-            transition: border-color 0.3s;
+        /* Заявка */
+        .order-box {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;
         }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            outline: none; border-color: var(--coca-red);
+        .order-text h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 12px; }
+        .order-text h2 span { color: var(--accent); }
+        .order-text p { color: var(--text-muted); margin-bottom: 20px; }
+        .order-phone { font-family: 'Oswald', sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--accent); display: inline-block; margin-bottom: 16px; }
+        .form-group { margin-bottom: 14px; }
+        .form-group label { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 12px 14px; background: var(--bg-dark);
+            border: 1px solid var(--border); border-radius: 6px;
+            color: var(--text-main); font-family: inherit; font-size: 16px;
         }
-        .form-group textarea { resize: vertical; min-height: 100px; }
-        .checkbox-inline { display: flex; gap: 10px; align-items: flex-start; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
-        .checkbox-inline input { accent-color: var(--coca-red); margin-top: 3px; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
+        .form-group textarea { resize: vertical; min-height: 80px; }
+        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; font-size: 0.8rem; color: var(--text-muted); margin: 12px 0 16px; }
+        .checkbox-group input { margin-top: 3px; accent-color: var(--accent); }
+        .form-status { margin-top: 12px; font-size: 0.9rem; text-align: center; display: none; padding: 10px; border-radius: 6px; }
+        .form-status.success { color: #7ED957; background: rgba(126, 217, 87, 0.1); display: block; }
+        .form-status.error { color: #FF6B6B; background: rgba(255, 107, 107, 0.1); display: block; }
 
         /* Контакты */
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
-        .contact-item {
-            background: var(--bg-card); padding: 24px; border-radius: 12px;
-            border: 1px solid rgba(244, 0, 9, 0.2); display: flex; gap: 16px; align-items: center;
-        }
-        .contact-item i {
-            width: 50px; height: 50px; background: var(--coca-red); color: white;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 20px; flex-shrink: 0;
-        }
-        .contact-item strong { display: block; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px; }
-        .contact-item span, .contact-item a { font-size: 1.05rem; font-weight: 600; }
+        .contacts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; }
+        .contact-card i { font-size: 26px; color: var(--accent); margin-bottom: 10px; }
+        .contact-card h4 { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px; font-weight: 500; }
+        .contact-card a, .contact-card p { font-size: 1.05rem; font-weight: 600; }
 
         /* Footer */
-        footer { background: #000; padding: 40px 0 20px; border-top: 2px solid var(--coca-red); }
-        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center; }
-        .footer-logo { font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 900; margin-bottom: 16px; }
-        .footer-logo span { color: var(--coca-red); }
-        .footer-text { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
-        .footer-socials { display: flex; justify-content: center; gap: 16px; margin-bottom: 24px; }
-        .footer-socials a {
-            width: 44px; height: 44px; background: var(--bg-card); color: var(--text-main);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 18px; transition: all 0.3s;
-        }
-        .footer-socials a:hover { background: var(--coca-red); transform: translateY(-3px); }
-        .footer-copy { color: var(--text-muted); font-size: 0.8rem; padding-top: 20px; border-top: 1px solid rgba(244, 0, 9, 0.2); }
+        footer { background: #080808; border-top: 1px solid var(--border); padding: 24px 0; text-align: center; }
+        footer p { font-size: 0.8rem; color: var(--text-muted); }
 
-        /* Адаптивность */
-        @media (max-width: 900px) {
-            .nav-links, .nav-phone { display: none; }
-            .burger { display: block; }
-            .nav-links.active {
-                display: flex; position: absolute; top: 100%; left: 0; right: 0;
-                background: var(--bg-dark); flex-direction: column; padding: 20px;
-                border-bottom: 2px solid var(--coca-red); gap: 16px;
-            }
-            .hero-container { grid-template-columns: 1fr; text-align: center; }
-            .hero-content .tagline { margin-left: auto; margin-right: auto; }
-            .hero-actions { justify-content: center; }
-            .hero-image { height: 400px; }
-            .hero-can { width: 200px; height: 360px; }
-            .hero-can::before { font-size: 32px; }
-            .order-grid { grid-template-columns: 1fr; }
-            .flavor-select { grid-template-columns: 1fr; }
+        /* Плавающая кнопка звонка (мобильные) */
+        .float-cta {
+            display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 999;
+            background: rgba(13, 13, 13, 0.97); border-top: 1px solid var(--accent);
+            padding: 10px 16px; gap: 10px;
         }
-        @media (max-width: 600px) {
-            section.content { padding: 60px 0; }
-            .hero { padding: 100px 16px 40px; }
-            .calculator, .order-form { padding: 24px; }
-            .result-price { font-size: 2rem; }
+        .float-cta .btn { flex: 1; padding: 12px 10px; font-size: 13px; }
+
+        /* Лайтбокс */
+        .lightbox {
+            display: none; position: fixed; inset: 0; z-index: 2000;
+            background: rgba(0, 0, 0, 0.92); align-items: center; justify-content: center; padding: 20px;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 92vw; max-height: 88vh; border-radius: 8px; }
+        .lightbox-close {
+            position: absolute; top: 16px; right: 20px; background: none; border: none;
+            color: #fff; font-size: 32px; cursor: pointer;
+        }
+
+        /* Адаптив: 5 брейкпоинтов */
+        @media (max-width: 960px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-photo { height: 280px; order: -1; }
+            .services-head { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .service-item { border-left: none; border-top: 1px solid var(--border); padding-top: 14px; }
+            .order-box { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                background: var(--bg-card); flex-direction: column; padding: 16px 20px; gap: 12px;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-links.active { display: flex; }
+            .nav-phone { display: none; }
+            .burger { display: block; }
+            .why-grid, .contacts-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item { height: 220px; }
+            .float-cta { display: flex; }
+            body { padding-bottom: 64px; }
+            section { padding: 32px 0; }
+        }
+        @media (max-width: 480px) {
+            .services-grid { grid-template-columns: 1fr; }
+            .hero { padding: 96px 0 36px; }
+            .hero-photo { height: 220px; }
+            .order-box { padding: 22px; }
+        }
+        @media (max-width: 360px) {
+            .hero h1 { font-size: 1.9rem; }
+            .btn { padding: 12px 20px; font-size: 13px; }
+        }
+        @media (hover: none) {
+            .btn:active { transform: scale(0.98); }
+            .gallery-item img { cursor: default; }
         }
     </style>
 </head>
 <body>
+    <div class="bg-fixed"></div>
 
     <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">COCA<span>-COLA</span></a>
-            <button class="burger" aria-label="Меню" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+        <div class="nav-inner">
+            <a href="#home" class="logo">Спец<span>Техника</span></a>
+            <button class="burger" aria-label="Открыть меню" onclick="document.querySelector('.nav-links').classList.toggle('active')">
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links">
-                <li><a href="#advantages">Преимущества</a></li>
-                <li><a href="#products">Ассортимент</a></li>
-                <li><a href="#why-us">Почему мы</a></li>
-                <li><a href="#reviews">Отзывы</a></li>
-                <li><a href="#order">Заказать</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#works">Наши работы</a></li>
+                <li><a href="#why">Преимущества</a></li>
+                <li><a href="#order">Заявка</a></li>
+                <li><a href="#contacts">Контакты</a></li>
             </ul>
-            <a href="tel:+78001234567" class="nav-phone"><i class="fas fa-phone"></i> 8 (800) 123-45-67</a>
+            <a href="tel:+79113321111" class="nav-phone"><i class="fas fa-phone" style="color: var(--accent);"></i> +7 (911) 332-11-11</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Оригинальная <span>Coca-Cola</span> в алюминиевых банках</h1>
-                <p class="tagline">Оптовые поставки по всей России. Быстрая доставка, лучшие цены, гарантия подлинности. Идеально для магазинов, кафе и офисов.</p>
-                <div class="hero-badges">
-                    <div class="badge"><i class="fas fa-check-circle"></i> 100% оригинал</div>
-                    <div class="badge"><i class="fas fa-truck"></i> Доставка за 24ч</div>
-                    <div class="badge"><i class="fas fa-recycle"></i> Эко-алюминий</div>
+    <header class="hero" id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <h1>Спецтехника <span>для ваших задач</span></h1>
+                    <p class="hero-services">
+                        <b>Демонтаж</b> • <b>Земляные работы</b> • <b>Вывоз</b> • <b>Благоустройство</b> • <b>Аренда спецтехники</b>
+                    </p>
+                    <div class="hero-badge">
+                        <i class="fas fa-stopwatch"></i>
+                        <div>
+                            <strong>Оперативно</strong>
+                            <span>Подача техники в день обращения</span>
+                        </div>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#order" class="btn"><i class="fas fa-paper-plane"></i> Оставить заявку</a>
+                        <a href="tel:+79113321111" class="btn btn-outline"><i class="fas fa-phone"></i> Позвонить</a>
+                    </div>
                 </div>
-                <div class="hero-actions">
-                    <a href="#order" class="btn"><i class="fas fa-shopping-cart"></i> Сделать заказ</a>
-                    <a href="#products" class="btn btn-outline">Смотреть ассортимент</a>
+                <div class="img-wrapper hero-photo">
+                    <div class="placeholder-label">
+                        <strong data-copy="images/hero-evacuator.jpg">images/hero-evacuator.jpg</strong>
+                        <span>Клик по имени файла — скопировать. Замени на фото эвакуатора с машиной</span>
+                    </div>
+                    <img src="images/hero-evacuator.jpg" onerror="this.style.display='none'" alt="Эвакуатор с манипулятором перевозит автомобиль">
                 </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-can"></div>
             </div>
         </div>
     </header>
 
-    <section class="content advantages" id="advantages">
+    <section id="services">
         <div class="container">
-            <div class="section-header">
-                <h2>Почему <span>алюминиевые</span> банки?</h2>
-                <p>Алюминий — это не просто упаковка. Это забота о вкусе, экологии и вашем бизнесе.</p>
-            </div>
-            <div class="adv-grid">
-                <div class="adv-card">
-                    <div class="adv-icon"><i class="fas fa-snowflake"></i></div>
-                    <h3>Быстрое охлаждение</h3>
-                    <p>Алюминий охлаждается в 3 раза быстрее стекла. Идеальный вкус за 15 минут в холодильнике.</p>
+            <div class="services-head">
+                <div class="skew-box">
+                    <div><h2>Решаем задачи любой сложности</h2></div>
                 </div>
-                <div class="adv-card">
-                    <div class="adv-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Защита от света</h3>
-                    <p>100% блокировка UV-лучей. Напиток сохраняет вкус и газированность дольше, чем в ПЭТ.</p>
-                </div>
-                <div class="adv-card">
-                    <div class="adv-icon"><i class="fas fa-recycle"></i></div>
-                    <h3>100% переработка</h3>
-                    <p>Алюминий перерабатывается бесконечно. Экологичный выбор для сознательного бизнеса.</p>
-                </div>
-                <div class="adv-card">
-                    <div class="adv-icon"><i class="fas fa-feather-alt"></i></div>
-                    <h3>Лёгкий вес</h3>
-                    <p>На 40% легче стекла. Экономия на логистике и удобство для покупателей.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="content" id="products">
-        <div class="container">
-            <div class="section-header">
-                <h2>Наш <span>ассортимент</span></h2>
-                <p>Все популярные вкусы Coca-Cola в классическом формате 330 мл. Всегда в наличии на складе.</p>
-            </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-can">
-                            <div class="can-visual can-classic" data-name="CLASSIC"></div>
-                        </div>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <i class="fas fa-hammer"></i>
+                        <h3>Демонтаж любых объектов</h3>
                     </div>
-                    <div class="product-info">
-                        <h3>Coca-Cola Classic</h3>
-                        <div class="volume">330 мл • Классический вкус</div>
-                        <div class="product-price">
-                            <span>от 45 ₽</span>
-                            <span class="old-price">65 ₽</span>
-                        </div>
+                    <div class="service-item">
+                        <i class="fas fa-dumpster"></i>
+                        <h3>Вывоз мусора и строительных отходов</h3>
                     </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-can">
-                            <div class="can-visual can-zero" data-name="ZERO"></div>
-                        </div>
+                    <div class="service-item">
+                        <i class="fas fa-tractor"></i>
+                        <h3>Земляные работы</h3>
                     </div>
-                    <div class="product-info">
-                        <h3>Coca-Cola Zero</h3>
-                        <div class="volume">330 мл • Без сахара</div>
-                        <div class="product-price">
-                            <span>от 48 ₽</span>
-                            <span class="old-price">70 ₽</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-can">
-                            <div class="can-visual can-light" data-name="LIGHT"></div>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Coca-Cola Light</h3>
-                        <div class="volume">330 мл • Лёгкая версия</div>
-                        <div class="product-price">
-                            <span>от 47 ₽</span>
-                            <span class="old-price">68 ₽</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-can">
-                            <div class="can-visual can-vanilla" data-name="VANILLA"></div>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Coca-Cola Vanilla</h3>
-                        <div class="volume">330 мл • Ванильный вкус</div>
-                        <div class="product-price">
-                            <span>от 52 ₽</span>
-                            <span class="old-price">75 ₽</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-can">
-                            <div class="can-visual can-cherry" data-name="CHERRY"></div>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Coca-Cola Cherry</h3>
-                        <div class="volume">330 мл • Вишнёвый вкус</div>
-                        <div class="product-price">
-                            <span>от 55 ₽</span>
-                            <span class="old-price">80 ₽</span>
-                        </div>
+                    <div class="service-item">
+                        <i class="fas fa-gears"></i>
+                        <h3>Аренда спецтехники с оператором</h3>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="content why-us" id="why-us">
+    <section id="works">
         <div class="container">
-            <div class="section-header">
-                <h2>Почему <span>выбирают</span> нас</h2>
-                <p>Работаем с 2015 года. Более 500 постоянных клиентов по всей России.</p>
+            <h2 class="section-title">Спецтехника <span>в деле</span></h2>
+            <p class="section-sub">Реальные объекты нашей команды: от демонтажа старых построек до подготовки участка под строительство</p>
+            <div class="gallery-grid">
+                <div class="img-wrapper gallery-item">
+                    <div class="placeholder-label">
+                        <strong data-copy="images/work-demontazh.jpg">images/work-demontazh.jpg</strong>
+                        <span>Фото: демонтаж</span>
+                    </div>
+                    <img src="images/work-demontazh.jpg" onerror="this.style.display='none'" alt="Демонтаж объекта экскаватором">
+                    <div class="gallery-tag">Демонтаж</div>
+                </div>
+                <div class="img-wrapper gallery-item">
+                    <div class="placeholder-label">
+                        <strong data-copy="images/work-uchastok.jpg">images/work-uchastok.jpg</strong>
+                        <span>Фото: подготовка участка</span>
+                    </div>
+                    <img src="images/work-uchastok.jpg" onerror="this.style.display='none'" alt="Подготовка участка, вывоз мусора в мешках">
+                    <div class="gallery-tag">Подготовка участка</div>
+                </div>
+                <div class="img-wrapper gallery-item">
+                    <div class="placeholder-label">
+                        <strong data-copy="images/work-zemlyanye.jpg">images/work-zemlyanye.jpg</strong>
+                        <span>Фото: земляные работы</span>
+                    </div>
+                    <img src="images/work-zemlyanye.jpg" onerror="this.style.display='none'" alt="Земляные работы экскаватором-погрузчиком">
+                    <div class="gallery-tag">Земляные работы</div>
+                </div>
+                <div class="img-wrapper gallery-item">
+                    <div class="placeholder-label">
+                        <strong data-copy="images/work-tehnika.jpg">images/work-tehnika.jpg</strong>
+                        <span>Фото: спецтехника в деле</span>
+                    </div>
+                    <img src="images/work-tehnika.jpg" onerror="this.style.display='none'" alt="Экскаватор-погрузчик за работой зимой">
+                    <div class="gallery-tag">Спецтехника в деле</div>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section id="why">
+        <div class="container">
             <div class="why-grid">
                 <div class="why-item">
-                    <div class="why-num">01</div>
-                    <div>
-                        <h3>Прямые поставки</h3>
-                        <p>Работаем напрямую с дистрибьюторами. Никаких посредников и наценок. Цена ниже рыночной на 15-20%.</p>
-                    </div>
+                    <i class="fas fa-users"></i>
+                    <h3>Опытная команда</h3>
                 </div>
                 <div class="why-item">
-                    <div class="why-num">02</div>
-                    <div>
-                        <h3>Гарантия подлинности</h3>
-                        <p>Все партии сертифицированы. Предоставляем документы и декларации соответствия. Только оригинал.</p>
-                    </div>
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>Честные цены и прозрачные условия</h3>
                 </div>
                 <div class="why-item">
-                    <div class="why-num">03</div>
-                    <div>
-                        <h3>Быстрая доставка</h3>
-                        <p>Собственный автопарк. Доставка по Москве за 24 часа, по России — от 2 до 5 дней. Отслеживание груза.</p>
-                    </div>
-                </div>
-                <div class="why-item">
-                    <div class="why-num">04</div>
-                    <div>
-                        <h3>Гибкие условия</h3>
-                        <p>Минимальный заказ от 1 коробки (24 банки). Скидки от объёма. Отсрочка платежа для постоянных клиентов.</p>
-                    </div>
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Соблюдаем сроки</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="content" id="reviews">
+    <section id="order">
         <div class="container">
-            <div class="section-header">
-                <h2>Отзывы <span>клиентов</span></h2>
-                <p>Нам доверяют магазины, кафе, офисы и частные покупатели по всей стране.</p>
-            </div>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">Заказываем уже полгода для нашей сети мини-маркетов. Цены действительно ниже, чем у конкурентов, доставка всегда в срок. Ни одной жалобы от покупателей на качество.</p>
-                    <div class="review-author">
-                        <div class="review-ava">АК</div>
-                        <div>
-                            <strong>Александр Козлов</strong>
-                            <span>Владелец сети "Продукты 24"</span>
-                        </div>
+            <div class="order-box">
+                <div class="order-text">
+                    <h2>Свяжитесь <span>с нами</span></h2>
+                    <p>Проконсультируем и подберём решение под ваши задачи! Расскажем, какая техника нужна, и посчитаем стоимость за 15 минут.</p>
+                    <a href="tel:+79113321111" class="order-phone">+7 (911) 332-11-11</a>
+                    <div>
+                        <a href="tel:+79113321111" class="btn"><i class="fas fa-phone"></i> Позвонить сейчас</a>
                     </div>
                 </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">Брали партию для корпоратива на 200 человек. Привезли точно в назначенное время, всё охлаждённое. Отдельное спасибо за гибкость — добавили заказ в последний момент без проблем.</p>
-                    <div class="review-author">
-                        <div class="review-ava">МС</div>
-                        <div>
-                            <strong>Мария Соколова</strong>
-                            <span>HR-менеджер, IT-компания</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">Открыл кофейню полгода назад, работаю только с этими ребятами. Алюминиевые банки смотрятся стильно, клиенты довольны. Документы всегда в порядке, проблем с проверками не было.</p>
-                    <div class="review-author">
-                        <div class="review-ava">ДП</div>
-                        <div>
-                            <strong>Дмитрий Петров</strong>
-                            <span>Владелец кофейни "Бодрое утро"</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="content order-section" id="order">
-        <div class="container">
-            <div class="section-header">
-                <h2>Оформить <span>заказ</span></h2>
-                <p>Рассчитайте стоимость прямо сейчас и оставьте заявку. Перезвоним в течение 15 минут.</p>
-            </div>
-            <div class="order-grid">
-                <div class="calculator">
-                    <h3><i class="fas fa-calculator" style="color: var(--coca-red); margin-right: 10px;"></i>Калькулятор заказа</h3>
-                    
-                    <div class="calc-row">
-                        <label class="calc-label">Выберите вкус</label>
-                        <div class="flavor-select">
-                            <label class="flavor-option active">
-                                <input type="radio" name="flavor" value="45" data-name="Classic" checked>
-                                Classic — 45 ₽
-                            </label>
-                            <label class="flavor-option">
-                                <input type="radio" name="flavor" value="48" data-name="Zero">
-                                Zero — 48 ₽
-                            </label>
-                            <label class="flavor-option">
-                                <input type="radio" name="flavor" value="47" data-name="Light">
-                                Light — 47 ₽
-                            </label>
-                            <label class="flavor-option">
-                                <input type="radio" name="flavor" value="52" data-name="Vanilla">
-                                Vanilla — 52 ₽
-                            </label>
-                            <label class="flavor-option">
-                                <input type="radio" name="flavor" value="55" data-name="Cherry">
-                                Cherry — 55 ₽
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="calc-row">
-                        <label class="calc-label">Количество банок</label>
-                        <div class="quantity-control">
-                            <button class="qty-btn" id="qtyMinus">−</button>
-                            <div class="qty-value"><span id="qtyValue">24</span> шт</div>
-                            <button class="qty-btn" id="qtyPlus">+</button>
-                        </div>
-                    </div>
-
-                    <div class="calc-result">
-                        <div class="result-label">Итого к оплате</div>
-                        <div class="result-price" id="totalPrice">1 080 ₽</div>
-                        <div class="result-details">
-                            <span id="priceDetails">24 банки × 45 ₽</span>
-                            <div style="margin-top: 8px; font-size: 0.8rem;">
-                                <i class="fas fa-gift"></i> При заказе от 100 шт — скидка 10%
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="order-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                    <h3><i class="fas fa-paper-plane" style="color: var(--coca-red); margin-right: 10px;"></i>Ваши данные</h3>
-                    
+                <form id="lead-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                     <div class="form-group">
                         <label for="name">Ваше имя</label>
-                        <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+                        <input type="text" id="name" name="name" required placeholder="Иван" autocomplete="name">
                     </div>
-                    
                     <div class="form-group">
-                        <label for="phone">Телефон</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__" inputmode="tel">
+                        <label for="phone">Телефон *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel">
                     </div>
-                    
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="example@mail.ru">
+                        <label for="task">Какая техника / задача?</label>
+                        <textarea id="task" name="task" placeholder="Например: экскаватор-погрузчик, вывезти грунт с участка"></textarea>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="city">Город доставки</label>
-                        <input type="text" id="city" name="city" required placeholder="Москва">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="comment">Комментарий к заказу</label>
-                        <textarea id="comment" name="comment" placeholder="Адрес доставки, пожелания по времени..."></textarea>
-                    </div>
-                    
-                    <label class="checkbox-inline">
+                    <label class="checkbox-group">
                         <input type="checkbox" required checked>
                         <span>Согласен на обработку персональных данных</span>
                     </label>
-                    
-                    <button type="submit" class="btn" style="width: 100%; justify-content: center;">
-                        <i class="fas fa-check-circle"></i> Подтвердить заказ
-                    </button>
-                    
-                    <p style="text-align: center; font-size: 0.85rem; color: var(--text-muted); margin-top: 16px;">
-                        <i class="fas fa-lock" style="color: var(--coca-red);"></i> 
-                        Безопасная сделка. Оплата после подтверждения заказа.
-                    </p>
+                    <button type="submit" class="btn" style="width: 100%;"><i class="fas fa-paper-plane"></i> Отправить заявку</button>
+                    <div class="form-status"></div>
                 </form>
             </div>
         </div>
     </section>
 
-    <section class="content" id="contacts">
+    <section id="contacts">
         <div class="container">
-            <div class="section-header">
-                <h2>Контакты</h2>
-                <p>Свяжитесь с нами любым удобным способом. Работаем без выходных.</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-item">
+            <h2 class="section-title">Контакты</h2>
+            <p class="section-sub">Работаем без выходных, подача техники в день обращения</p>
+            <div class="contacts-grid">
+                <div class="contact-card">
                     <i class="fas fa-phone"></i>
-                    <div>
-                        <strong>Телефон</strong>
-                        <a href="tel:+78001234567">8 (800) 123-45-67</a>
-                    </div>
+                    <h4>Телефон</h4>
+                    <a href="tel:+79113321111">+7 (911) 332-11-11</a>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <strong>Email</strong>
-                        <a href="mailto:order@coca-aluminum.ru">order@coca-aluminum.ru</a>
-                    </div>
+                <div class="contact-card">
+                    <i class="fas fa-location-dot"></i>
+                    <h4>Зона работы</h4>
+                    <p>Санкт-Петербург и область</p>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <strong>Склад</strong>
-                        <span>Москва, ул. Складская, 15</span>
-                    </div>
-                </div>
-                <div class="contact-item">
+                <div class="contact-card">
                     <i class="fas fa-clock"></i>
-                    <div>
-                        <strong>Режим работы</strong>
-                        <span>Пн-Вс: 9:00 — 21:00</span>
-                    </div>
+                    <h4>Режим работы</h4>
+                    <p>Ежедневно: 8:00 – 22:00</p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">COCA<span>-COLA</span> Алюминий</div>
-            <p class="footer-text">Официальный поставщик Coca-Cola в алюминиевых банках по России</p>
-            <div class="footer-socials">
-                <a href="#" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
-                <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            </div>
-            <div class="footer-copy">
-                © 2026 Coca-Cola Aluminum. Все права защищены. Coca-Cola® является зарегистрированным товарным знаком The Coca-Cola Company.
-            </div>
+        <div class="container">
+            <p>© 2026 СпецТехника. Аренда спецтехники, демонтаж, земляные работы, вывоз мусора.</p>
         </div>
     </footer>
 
+    <div class="float-cta">
+        <a href="tel:+79113321111" class="btn"><i class="fas fa-phone"></i> Позвонить</a>
+        <a href="#order" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Заявка</a>
+    </div>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-label="Просмотр фото">
+        <button class="lightbox-close" aria-label="Закрыть просмотр">&times;</button>
+        <img src="" alt="Фото работ">
+    </div>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "СпецТехника",
+      "description": "Аренда спецтехники с оператором: эвакуатор с манипулятором, экскаватор-погрузчик. Демонтаж, земляные работы, вывоз мусора.",
+      "telephone": "+7-911-332-11-11",
+      "areaServed": "Санкт-Петербург и Ленинградская область",
+      "openingHours": "Mo-Su 08:00-22:00"
+    }
+    </script>
+
     <script>
-        // Мобильное меню
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    document.querySelector('.nav-links').classList.remove('active');
+        // Копирование имени файла из заглушки
+        document.querySelectorAll('[data-copy]').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const fileName = e.target.getAttribute('data-copy').split('/').pop();
+                navigator.clipboard.writeText(fileName).then(() => {
+                    const original = e.target.textContent;
+                    e.target.textContent = 'Скопировано: ' + fileName;
+                    setTimeout(() => e.target.textContent = original, 1500);
+                });
+            });
+        });
+
+        // Мобильное меню: закрытие по клику на пункт
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('active'));
+        });
+
+        // Маска телефона +7 (___) ___-__-__
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', (e) => {
+            let digits = e.target.value.replace(/\D/g, '');
+            if (digits.startsWith('8')) digits = '7' + digits.slice(1);
+            if (!digits.startsWith('7')) digits = '7' + digits;
+            digits = digits.slice(0, 11);
+            let result = '+7';
+            if (digits.length > 1) result += ' (' + digits.slice(1, 4);
+            if (digits.length >= 4) result += ') ' + digits.slice(4, 7);
+            if (digits.length >= 7) result += '-' + digits.slice(7, 9);
+            if (digits.length >= 9) result += '-' + digits.slice(9, 11);
+            e.target.value = result;
+        });
+
+        // Лайтбокс для фото галереи
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = lightbox.querySelector('img');
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+        const closeLightbox = () => { lightbox.classList.remove('active'); lightboxImg.src = ''; };
+        lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+        // Escape: закрыть лайтбокс и меню
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+                document.querySelector('.nav-links').classList.remove('active');
+            }
+        });
+
+        // Отправка формы на Formspree
+        const form = document.getElementById('lead-form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const statusEl = form.querySelector('.form-status');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+            statusEl.className = 'form-status';
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: new FormData(form)
+                });
+                if (response.ok) {
+                    statusEl.textContent = '✓ Заявка отправлена! Перезвоним в течение 15 минут.';
+                    statusEl.className = 'form-status success';
+                    form.reset();
+                } else {
+                    throw new Error('Ошибка отправки');
                 }
-            });
-        });
-
-        // Калькулятор заказа
-        const flavorOptions = document.querySelectorAll('.flavor-option');
-        const qtyMinus = document.getElementById('qtyMinus');
-        const qtyPlus = document.getElementById('qtyPlus');
-        const qtyValue = document.getElementById('qtyValue');
-        const totalPrice = document.getElementById('totalPrice');
-        const priceDetails = document.getElementById('priceDetails');
-        
-        let quantity = 24;
-        let pricePerUnit = 45;
-        let flavorName = 'Classic';
-
-        function updateCalculator() {
-            let total = quantity * pricePerUnit;
-            let discount = 0;
-            
-            // Скидка 10% от 100 штук
-            if (quantity >= 100) {
-                discount = total * 0.1;
-                total -= discount;
-            }
-            
-            totalPrice.textContent = Math.round(total).toLocaleString('ru-RU') + ' ₽';
-            priceDetails.textContent = `${quantity} банок × ${pricePerUnit} ₽${discount > 0 ? ' − скидка 10%' : ''}`;
-        }
-
-        flavorOptions.forEach(option => {
-            option.addEventListener('click', function() {
-                flavorOptions.forEach(o => o.classList.remove('active'));
-                this.classList.add('active');
-                const input = this.querySelector('input');
-                pricePerUnit = parseInt(input.value);
-                flavorName = input.dataset.name;
-                updateCalculator();
-            });
-        });
-
-        qtyMinus.addEventListener('click', () => {
-            if (quantity > 1) {
-                quantity--;
-                qtyValue.textContent = quantity;
-                updateCalculator();
+            } catch (error) {
+                statusEl.textContent = 'Не удалось отправить. Позвоните нам: +7 (911) 332-11-11';
+                statusEl.className = 'form-status error';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Отправить заявку';
             }
         });
-
-        qtyPlus.addEventListener('click', () => {
-            quantity++;
-            qtyValue.textContent = quantity;
-            updateCalculator();
-        });
-
-        // Анимация появления секций
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.adv-card, .product-card, .review-card, .why-item').forEach(el => {
-            el.style.opacity = '0';
-            observer.observe(el);
-        });
-
-        // Добавляем анимацию в CSS
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeInUp {
-                from { opacity: 0; transform: translateY(30px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
