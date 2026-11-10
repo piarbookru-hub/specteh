@@ -56,7 +56,7 @@
                         radial-gradient(circle at 85% 75%, rgba(22, 22, 22, 0.9) 0%, transparent 55%);
         }
 
-        /* Заглушки фото: клик по имени файла копирует его */
+        /* Заглушки фото */
         .img-wrapper { position: relative; background: var(--bg-card); overflow: visible; border-radius: 8px; border: 1px solid var(--border); }
         .placeholder-label {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -84,18 +84,16 @@
         .nav-phone:hover { color: var(--accent); }
         .burger { display: none; background: none; border: none; color: var(--accent); font-size: 24px; cursor: pointer; }
 
-        /* Hero: фото техники — задний фон на всю ширину */
+        /* Hero: фото техники фоном, текст прижат к левому краю */
         .hero {
             position: relative; padding: 120px 0 60px; overflow: hidden;
             min-height: 560px; display: flex; align-items: center;
         }
-        /* Фото техники фоном: прижато вправо, без размытия */
         .hero::before {
             content: ''; position: absolute; inset: 0;
             background: url('images/hero-evacuator.jpg') right center / cover no-repeat;
             opacity: 0.95; z-index: -1;
         }
-        /* Тёмный градиент слева направо + переход в фон сайта снизу */
         .hero::after {
             content: ''; position: absolute; inset: 0;
             background:
@@ -103,7 +101,9 @@
                 linear-gradient(180deg, rgba(13,13,13,0.4) 0%, transparent 30%, transparent 70%, var(--bg-dark) 100%);
             z-index: -1;
         }
-        .hero-content { max-width: 640px; position: relative; z-index: 2; }
+        /* Прижимаем контейнер hero к левому краю */
+        .hero .container { margin: 0; }
+        .hero-content { max-width: 720px; position: relative; z-index: 2; }
         .hero h1 { font-size: clamp(2.4rem, 6.5vw, 4.4rem); font-weight: 700; letter-spacing: 1px; }
         .hero h1 span { display: block; color: var(--accent); font-size: clamp(1.5rem, 3.8vw, 2.4rem); margin-top: 8px; }
         .hero-services { margin: 20px 0 24px; color: var(--text-muted); font-size: 1rem; }
@@ -133,7 +133,7 @@
         .btn-outline:hover { background: var(--text-main); color: #0D0D0D; }
         .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-        /* Услуги: жёлтый скошенный блок + 4 пункта */
+        /* Услуги */
         .services-head { display: grid; grid-template-columns: 0.9fr 2.1fr; gap: 24px; align-items: center; margin-bottom: 8px; }
         .skew-box {
             background: var(--accent); color: #0D0D0D; transform: skew(-10deg);
@@ -147,7 +147,7 @@
         .service-item i { font-size: 34px; color: var(--accent); margin-bottom: 12px; }
         .service-item h3 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.5px; }
 
-        /* Галерея работ */
+        /* Галерея */
         .section-title { font-size: clamp(1.5rem, 3.5vw, 2.2rem); text-align: center; margin-bottom: 8px; }
         .section-title span { color: var(--accent); }
         .section-sub { text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 28px; font-size: 0.95rem; }
@@ -209,7 +209,7 @@
         footer { background: #080808; border-top: 1px solid var(--border); padding: 24px 0; text-align: center; }
         footer p { font-size: 0.8rem; color: var(--text-muted); }
 
-        /* Плавающая кнопка звонка (мобильные) */
+        /* Плавающая CTA */
         .float-cta {
             display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 999;
             background: rgba(13, 13, 13, 0.97); border-top: 1px solid var(--accent);
@@ -229,7 +229,7 @@
             color: #fff; font-size: 32px; cursor: pointer;
         }
 
-        /* Адаптив: 5 брейкпоинтов */
+        /* Адаптив */
         @media (max-width: 960px) {
             .services-head { grid-template-columns: 1fr; }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -252,7 +252,6 @@
             .float-cta { display: flex; }
             body { padding-bottom: 64px; }
             section { padding: 32px 0; }
-            /* Мобильный hero: фото по центру, плотный вертикальный градиент для читаемости */
             .hero { min-height: auto; padding: 100px 0 44px; }
             .hero::before { background-position: center 35%; opacity: 0.45; }
             .hero::after {
@@ -496,7 +495,6 @@
     </script>
 
     <script>
-        // Копирование имени файла из заглушки
         document.querySelectorAll('[data-copy]').forEach(el => {
             el.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -509,12 +507,10 @@
             });
         });
 
-        // Мобильное меню: закрытие по клику на пункт
         document.querySelectorAll('.nav-links a').forEach(a => {
             a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('active'));
         });
 
-        // Маска телефона +7 (___) ___-__-__
         const phoneInput = document.getElementById('phone');
         phoneInput.addEventListener('input', (e) => {
             let digits = e.target.value.replace(/\D/g, '');
@@ -529,7 +525,6 @@
             e.target.value = result;
         });
 
-        // Лайтбокс для фото галереи
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = lightbox.querySelector('img');
         document.querySelectorAll('.gallery-item img').forEach(img => {
@@ -542,7 +537,6 @@
         lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
         lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
 
-        // Escape: закрыть лайтбокс и меню
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeLightbox();
@@ -550,7 +544,6 @@
             }
         });
 
-        // Отправка формы на Formspree
         const form = document.getElementById('lead-form');
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
