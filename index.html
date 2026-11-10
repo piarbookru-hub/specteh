@@ -41,7 +41,14 @@
         a { color: inherit; text-decoration: none; transition: color 0.3s; }
         img { max-width: 100%; height: auto; display: block; }
         section { scroll-margin-top: 80px; padding: 40px 0; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Единый контейнер для идеального выравнивания всех блоков */
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+            width: 100%; 
+        }
 
         /* Фон: текстура + виньетка */
         .bg-fixed { position: fixed; inset: 0; z-index: -2; background: var(--bg-dark); }
@@ -62,15 +69,17 @@
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
             z-index: 3; text-align: center; padding: 12px;
             background: rgba(13, 13, 13, 0.95); border: 1px dashed var(--accent);
-            border-radius: 8px; max-width: 90%;
+            border-radius: 8px; max-width: 90%; transition: opacity 0.3s;
         }
         .placeholder-label strong {
             display: block; font-family: monospace; font-size: 12px; color: var(--accent);
             margin-bottom: 4px; cursor: pointer; text-decoration: underline; word-break: break-all;
         }
         .placeholder-label span { font-size: 11px; color: var(--text-muted); }
-        .img-wrapper img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; border-radius: 8px; cursor: zoom-in; }
-        .img-wrapper img:not([src]) { display: none; }
+        .img-wrapper img { 
+            position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; 
+            z-index: 2; border-radius: 8px; cursor: zoom-in; 
+        }
 
         /* Навигация */
         nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(13, 13, 13, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 12px 0; }
@@ -84,7 +93,7 @@
         .nav-phone:hover { color: var(--accent); }
         .burger { display: none; background: none; border: none; color: var(--accent); font-size: 24px; cursor: pointer; }
 
-        /* Hero: фото техники фоном, текст по левому краю контейнера */
+        /* Hero */
         .hero {
             position: relative; padding: 120px 0 60px; overflow: hidden;
             min-height: 560px; display: flex; align-items: center;
@@ -101,7 +110,12 @@
                 linear-gradient(180deg, rgba(13,13,13,0.4) 0%, transparent 30%, transparent 70%, var(--bg-dark) 100%);
             z-index: -1;
         }
-        .hero-content { max-width: 720px; position: relative; z-index: 2; text-align: left; }
+        .hero-content { 
+            max-width: 720px; 
+            position: relative; 
+            z-index: 2; 
+            text-align: left; /* Явное выравнивание по левому краю контейнера */
+        }
         .hero h1 { font-size: clamp(2.4rem, 6.5vw, 4.4rem); font-weight: 700; letter-spacing: 1px; }
         .hero h1 span { display: block; color: var(--accent); font-size: clamp(1.5rem, 3.8vw, 2.4rem); margin-top: 8px; }
         .hero-services { margin: 20px 0 24px; color: var(--text-muted); font-size: 1rem; }
@@ -355,7 +369,7 @@
                         <strong data-copy="images/work-demontazh.jpg">images/work-demontazh.jpg</strong>
                         <span>Фото: демонтаж</span>
                     </div>
-                    <img src="images/work-demontazh.jpg" onerror="this.style.display='none'" alt="Демонтаж объекта экскаватором">
+                    <img src="images/work-demontazh.jpg" alt="Демонтаж объекта экскаватором">
                     <div class="gallery-tag">Демонтаж</div>
                 </div>
                 <div class="img-wrapper gallery-item">
@@ -363,7 +377,7 @@
                         <strong data-copy="images/work-uchastok.jpg">images/work-uchastok.jpg</strong>
                         <span>Фото: подготовка участка</span>
                     </div>
-                    <img src="images/work-uchastok.jpg" onerror="this.style.display='none'" alt="Подготовка участка, вывоз мусора в мешках">
+                    <img src="images/work-uchastok.jpg" alt="Подготовка участка, вывоз мусора в мешках">
                     <div class="gallery-tag">Подготовка участка</div>
                 </div>
                 <div class="img-wrapper gallery-item">
@@ -371,7 +385,7 @@
                         <strong data-copy="images/work-zemlyanye.jpg">images/work-zemlyanye.jpg</strong>
                         <span>Фото: земляные работы</span>
                     </div>
-                    <img src="images/work-zemlyanye.jpg" onerror="this.style.display='none'" alt="Земляные работы экскаватором-погрузчиком">
+                    <img src="images/work-zemlyanye.jpg" alt="Земляные работы экскаватором-погрузчиком">
                     <div class="gallery-tag">Земляные работы</div>
                 </div>
                 <div class="img-wrapper gallery-item">
@@ -379,7 +393,7 @@
                         <strong data-copy="images/work-tehnika.jpg">images/work-tehnika.jpg</strong>
                         <span>Фото: спецтехника в деле</span>
                     </div>
-                    <img src="images/work-tehnika.jpg" onerror="this.style.display='none'" alt="Экскаватор-погрузчик за работой зимой">
+                    <img src="images/work-tehnika.jpg" alt="Экскаватор-погрузчик за работой зимой">
                     <div class="gallery-tag">Спецтехника в деле</div>
                 </div>
             </div>
@@ -493,6 +507,23 @@
     </script>
 
     <script>
+        // 1. Умное управление заглушками: скрывает их, когда картинка загружена
+        document.querySelectorAll('.img-wrapper img').forEach(img => {
+            if (img.complete && img.naturalHeight !== 0) {
+                const placeholder = img.parentElement.querySelector('.placeholder-label');
+                if (placeholder) placeholder.style.display = 'none';
+            } else {
+                img.addEventListener('load', function() {
+                    const placeholder = this.parentElement.querySelector('.placeholder-label');
+                    if (placeholder) placeholder.style.display = 'none';
+                });
+                img.addEventListener('error', function() {
+                    console.warn('⚠️ Не удалось загрузить изображение:', this.src, '. Проверь регистр букв в имени файла (GitHub чувствителен к регистру!) и путь к папке images.');
+                });
+            }
+        });
+
+        // 2. Копирование имени файла из заглушки
         document.querySelectorAll('[data-copy]').forEach(el => {
             el.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -505,10 +536,12 @@
             });
         });
 
+        // 3. Мобильное меню
         document.querySelectorAll('.nav-links a').forEach(a => {
             a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('active'));
         });
 
+        // 4. Маска телефона
         const phoneInput = document.getElementById('phone');
         phoneInput.addEventListener('input', (e) => {
             let digits = e.target.value.replace(/\D/g, '');
@@ -523,6 +556,7 @@
             e.target.value = result;
         });
 
+        // 5. Лайтбокс
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = lightbox.querySelector('img');
         document.querySelectorAll('.gallery-item img').forEach(img => {
@@ -542,6 +576,7 @@
             }
         });
 
+        // 6. Отправка формы
         const form = document.getElementById('lead-form');
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
