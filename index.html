@@ -84,32 +84,43 @@
         .nav-phone:hover { color: var(--accent); }
         .burger { display: none; background: none; border: none; color: var(--accent); font-size: 24px; cursor: pointer; }
 
-        /* Hero */
-        .hero { position: relative; padding: 110px 0 50px; overflow: hidden; }
+        /* Hero: фото техники — задний фон на всю ширину */
+        .hero {
+            position: relative; padding: 120px 0 60px; overflow: hidden;
+            min-height: 560px; display: flex; align-items: center;
+        }
+        /* Фото техники фоном: прижато вправо, без размытия */
         .hero::before {
             content: ''; position: absolute; inset: 0;
-            background: url('images/hero-bg.jpg') center/cover;
-            opacity: 0.55; filter: blur(2px); z-index: -1;
+            background: url('images/hero-evacuator.jpg') right center / cover no-repeat;
+            opacity: 0.95; z-index: -1;
         }
+        /* Тёмный градиент слева направо + переход в фон сайта снизу */
         .hero::after {
             content: ''; position: absolute; inset: 0;
-            background: linear-gradient(180deg, rgba(13,13,13,0.55) 0%, rgba(13,13,13,0.85) 70%, var(--bg-dark) 100%);
+            background:
+                linear-gradient(90deg, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.88) 42%, rgba(13,13,13,0.35) 70%, rgba(13,13,13,0.05) 100%),
+                linear-gradient(180deg, rgba(13,13,13,0.4) 0%, transparent 30%, transparent 70%, var(--bg-dark) 100%);
             z-index: -1;
         }
-        .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center; }
-        .hero h1 { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 700; letter-spacing: 1px; }
-        .hero h1 span { display: block; color: var(--accent); font-size: clamp(1.4rem, 3.5vw, 2.2rem); margin-top: 8px; }
+        .hero-content { max-width: 640px; position: relative; z-index: 2; }
+        .hero h1 { font-size: clamp(2.4rem, 6.5vw, 4.4rem); font-weight: 700; letter-spacing: 1px; }
+        .hero h1 span { display: block; color: var(--accent); font-size: clamp(1.5rem, 3.8vw, 2.4rem); margin-top: 8px; }
         .hero-services { margin: 20px 0 24px; color: var(--text-muted); font-size: 1rem; }
         .hero-services b { color: var(--text-main); font-weight: 600; }
+        .hero-services .sep { color: var(--accent); margin: 0 4px; }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 14px;
             border: 1px solid var(--accent); border-radius: 10px; padding: 12px 18px;
-            margin-bottom: 24px;
+            margin-bottom: 24px; background: rgba(13, 13, 13, 0.55);
         }
         .hero-badge i { font-size: 26px; color: var(--accent); }
         .hero-badge strong { display: block; font-family: 'Oswald', sans-serif; text-transform: uppercase; color: var(--accent); font-size: 15px; letter-spacing: 1px; }
         .hero-badge span { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); }
-        .hero-photo { height: 340px; }
+        .hero-arrows {
+            position: absolute; top: 92px; right: 44px; z-index: 2;
+            display: flex; gap: 4px; color: var(--accent); font-size: 30px;
+        }
         .btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 10px;
             padding: 14px 30px; background: var(--accent); color: #0D0D0D;
@@ -220,12 +231,11 @@
 
         /* Адаптив: 5 брейкпоинтов */
         @media (max-width: 960px) {
-            .hero-grid { grid-template-columns: 1fr; }
-            .hero-photo { height: 280px; order: -1; }
             .services-head { grid-template-columns: 1fr; }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .service-item { border-left: none; border-top: 1px solid var(--border); padding-top: 14px; }
             .order-box { grid-template-columns: 1fr; }
+            .hero-arrows { top: 84px; right: 24px; font-size: 24px; }
         }
         @media (max-width: 640px) {
             .nav-links {
@@ -242,11 +252,17 @@
             .float-cta { display: flex; }
             body { padding-bottom: 64px; }
             section { padding: 32px 0; }
+            /* Мобильный hero: фото по центру, плотный вертикальный градиент для читаемости */
+            .hero { min-height: auto; padding: 100px 0 44px; }
+            .hero::before { background-position: center 35%; opacity: 0.45; }
+            .hero::after {
+                background: linear-gradient(180deg, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.82) 60%, var(--bg-dark) 100%);
+            }
+            .hero-arrows { display: none; }
         }
         @media (max-width: 480px) {
             .services-grid { grid-template-columns: 1fr; }
             .hero { padding: 96px 0 36px; }
-            .hero-photo { height: 220px; }
             .order-box { padding: 22px; }
         }
         @media (max-width: 360px) {
@@ -280,31 +296,25 @@
     </nav>
 
     <header class="hero" id="home">
+        <div class="hero-arrows" aria-hidden="true">
+            <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i>
+        </div>
         <div class="container">
-            <div class="hero-grid">
-                <div>
-                    <h1>Спецтехника <span>для ваших задач</span></h1>
-                    <p class="hero-services">
-                        <b>Демонтаж</b> • <b>Земляные работы</b> • <b>Вывоз</b> • <b>Благоустройство</b> • <b>Аренда спецтехники</b>
-                    </p>
-                    <div class="hero-badge">
-                        <i class="fas fa-stopwatch"></i>
-                        <div>
-                            <strong>Оперативно</strong>
-                            <span>Подача техники в день обращения</span>
-                        </div>
-                    </div>
-                    <div class="hero-actions">
-                        <a href="#order" class="btn"><i class="fas fa-paper-plane"></i> Оставить заявку</a>
-                        <a href="tel:+79113321111" class="btn btn-outline"><i class="fas fa-phone"></i> Позвонить</a>
+            <div class="hero-content">
+                <h1>Спецтехника <span>для ваших задач</span></h1>
+                <p class="hero-services">
+                    <b>Демонтаж</b><span class="sep">•</span><b>Земляные работы</b><span class="sep">•</span><b>Вывоз</b><span class="sep">•</span><b>Благоустройство</b><span class="sep">•</span><b>Аренда спецтехники</b>
+                </p>
+                <div class="hero-badge">
+                    <i class="fas fa-stopwatch"></i>
+                    <div>
+                        <strong>Оперативно</strong>
+                        <span>Подача техники в день обращения</span>
                     </div>
                 </div>
-                <div class="img-wrapper hero-photo">
-                    <div class="placeholder-label">
-                        <strong data-copy="images/hero-evacuator.jpg">images/hero-evacuator.jpg</strong>
-                        <span>Клик по имени файла — скопировать. Замени на фото эвакуатора с машиной</span>
-                    </div>
-                    <img src="images/hero-evacuator.jpg" onerror="this.style.display='none'" alt="Эвакуатор с манипулятором перевозит автомобиль">
+                <div class="hero-actions">
+                    <a href="#order" class="btn"><i class="fas fa-paper-plane"></i> Оставить заявку</a>
+                    <a href="tel:+79113321111" class="btn btn-outline"><i class="fas fa-phone"></i> Позвонить</a>
                 </div>
             </div>
         </div>
