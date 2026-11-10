@@ -280,6 +280,30 @@
         .contact-card h4 { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px; font-weight: 500; }
         .contact-card a, .contact-card p { font-size: 1.05rem; font-weight: 600; }
 
+        /* Яндекс Карта (тёмная тема) */
+        .map-wrapper {
+            margin-top: 32px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            height: 400px;
+            position: relative;
+            background: var(--bg-card);
+        }
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            /* Магия: делаем светлую карту Яндекса тёмной, чтобы она вписалась в дизайн */
+            filter: grayscale(100%) invert(92%) contrast(85%);
+            transition: filter 0.3s ease;
+        }
+        .map-wrapper:hover iframe {
+            /* При наведении чуть возвращаем цвет для интерактивности */
+            filter: grayscale(80%) invert(92%) contrast(85%);
+        }
+
         /* Footer */
         footer { background: #080808; border-top: 1px solid var(--border); padding: 24px 0; text-align: center; }
         footer p { font-size: 0.8rem; color: var(--text-muted); }
@@ -334,6 +358,7 @@
                 background: linear-gradient(180deg, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.82) 60%, var(--bg-dark) 100%);
             }
             .hero-arrows { display: none; }
+            .map-wrapper { height: 300px; margin-top: 24px; }
         }
         @media (max-width: 480px) {
             .services-grid { grid-template-columns: 1fr; }
@@ -539,6 +564,11 @@
                     <p>Ежедневно: 8:00 – 22:00</p>
                 </div>
             </div>
+            
+            <!-- Яндекс Карта -->
+            <div class="map-wrapper animate-on-scroll">
+                <iframe src="https://yandex.ru/map-widget/v1/?ll=30.315833%2C59.939095&z=12&l=map" allowfullscreen="true"></iframe>
+            </div>
         </div>
     </section>
 
@@ -673,7 +703,7 @@
 
         // 7. Анимация появления элементов при скролле (Intersection Observer)
         const observerOptions = {
-            threshold: 0.15, // Срабатывает, когда 15% элемента видно на экране
+            threshold: 0.15,
             rootMargin: "0px 0px -50px 0px"
         };
 
@@ -681,7 +711,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Анимируем только один раз
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
