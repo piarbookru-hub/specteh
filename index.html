@@ -84,7 +84,7 @@
         .nav-phone:hover { color: var(--accent); }
         .burger { display: none; background: none; border: none; color: var(--accent); font-size: 24px; cursor: pointer; }
 
-        /* Hero: фото техники фоном, текст прижат к левому краю */
+        /* Hero: фото техники фоном, текст по левому краю контейнера */
         .hero {
             position: relative; padding: 120px 0 60px; overflow: hidden;
             min-height: 560px; display: flex; align-items: center;
@@ -101,9 +101,7 @@
                 linear-gradient(180deg, rgba(13,13,13,0.4) 0%, transparent 30%, transparent 70%, var(--bg-dark) 100%);
             z-index: -1;
         }
-        /* Прижимаем контейнер hero к левому краю */
-        .hero .container { margin: 0; }
-        .hero-content { max-width: 720px; position: relative; z-index: 2; }
+        .hero-content { max-width: 720px; position: relative; z-index: 2; text-align: left; }
         .hero h1 { font-size: clamp(2.4rem, 6.5vw, 4.4rem); font-weight: 700; letter-spacing: 1px; }
         .hero h1 span { display: block; color: var(--accent); font-size: clamp(1.5rem, 3.8vw, 2.4rem); margin-top: 8px; }
         .hero-services { margin: 20px 0 24px; color: var(--text-muted); font-size: 1rem; }
