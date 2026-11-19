@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Админ-панель — визуальный редактор</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="login-screen" id="loginScreen">
+    <div class="login-card">
+        <h1><i class="fas fa-lock" style="color: #F40009;"></i> Вход в админ-панель</h1>
+        <p class="subtitle">Введите ваш GitHub Personal Access Token</p>
+        <div class="form-group">
+            <label for="tokenInput">Personal Access Token</label>
+            <input type="password" id="tokenInput" placeholder="github_pat_… или ghp_…" autocomplete="off">
+        </div>
+        <button class="btn" id="loginBtn">Войти</button>
+        <div class="error-msg" id="loginError" role="alert"></div>
+        <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer" class="help-link">
+            <i class="fas fa-external-link-alt"></i> Создать fine-grained токен (один репозиторий, Contents: Read and write)
+        </a>
+    </div>
+</div>
+
+<div class="editor-app" id="editorApp">
+    <div class="editor-toolbar">
+        <div class="toolbar-row toolbar-row-top">
+            <div class="app-title">
+                <i class="fas fa-magic" style="color: #F40009;"></i>
+                <span id="projectNameHeader" style="font-weight: 600; margin-left: 8px;">Редактор</span>
+                <span id="repoNameHeader" style="color: #888; font-weight: 400; margin-left: 8px; font-size: 13px;"></span>
+            </div>
+            <span class="page-indicator" id="pageIndicatorBox" title="Текущая страница"><i class="fas fa-file"></i> <span id="currentPageIndicator">index.html</span></span>
+            <span class="deploy-badge" id="deployBadge" title="Статус деплоя. Клик — перепроверить."></span>
+            <button class="toolbar-btn primary" id="saveBtn"><i class="fas fa-cloud-upload-alt"></i> Сохранить в GitHub</button>
+            <span class="unsaved-badge" id="unsavedBadge"><i class="fas fa-circle" style="font-size: 8px;"></i> есть несохранённые</span>
+        </div>
+        <div class="toolbar-row toolbar-row-bottom">
+            <div class="toolbar-actions">
+                <button class="toolbar-btn" id="homeBtn" title="Вернуться к редактированию index.html" aria-label="На главную"><i class="fas fa-home"></i></button>
+                <button class="toolbar-btn" id="openSiteBtn" title="Открыть текущую страницу в новой вкладке"><i class="fas fa-external-link-alt"></i> Открыть сайт</button>
+                <button class="toolbar-btn" id="checkBtn" title="Проверить токен"><i class="fas fa-shield-alt"></i> Проверить</button>
+                <button class="toolbar-btn" id="reloadBtn" title="Обновить превью"><i class="fas fa-sync"></i> Обновить</button>
+                <button class="toolbar-btn" id="calcBtn" title="Настройки калькулятора (цены, материалы, работы)"><i class="fas fa-calculator"></i> Калькулятор</button>
+                <button class="toolbar-btn warning" id="cleanBtn" title="Удалить все метки data-edit и data-img из текущей страницы"><i class="fas fa-broom"></i> Очистить метки</button>
+                <button class="toolbar-btn" id="resetBtn" title="Подготовить текущую страницу заново"><i class="fas fa-redo"></i> Переподготовить</button>
+                <button class="toolbar-btn" id="logoutBtn" title="Выйти" aria-label="Выйти"><i class="fas fa-sign-out-alt"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hint-banner" id="hintBanner">
+        <i class="fas fa-lightbulb"></i> Клик по <strong>тексту/фото</strong> — редактирование. <strong>Alt+клик</strong> по ссылке — открыть страницу в админке. <strong>Ctrl+клик</strong> — новая вкладка. <strong>Esc</strong> — закрыть панель.
+    </div>
+
+    <div class="setup-screen" id="setupScreen">
+        <div class="setup-card">
+            <div class="setup-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+            <h2 id="setupTitle">Подготовка сайта</h2>
+            <p>Админка автоматически:<br>• Загрузит текущую страницу<br>• Пометит <strong>весь видимый текст</strong> (любой язык, цифры)<br>• Расставит метки на <strong>фотографии</strong> (с уникальными ID)<br>• Сохранит обратно в репозиторий</p>
+            <div class="token-check-box"><h3><i class="fas fa-key"></i> Информация о токене</h3><div id="tokenInfo">Проверяю...</div></div>
+            <button class="btn" id="prepareBtn"><i class="fas fa-download"></i> Подготовить страницу</button>
+            <div class="btn-group">
+                <button class="btn btn-secondary btn-small" id="checkBtn2"><i class="fas fa-shield-alt"></i> Проверить токен</button>
+                <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-small" style="text-decoration: none; text-align: center; color: #fff;"><i class="fas fa-plus"></i> Новый токен</a>
+            </div>
+            <div id="errorDetails" role="alert"></div>
+            <div class="progress-log" id="progressLog" style="display: none;"></div>
+        </div>
+    </div>
+
+    <div class="iframe-wrapper" id="iframeWrapper" style="display: none;">
+        <div class="iframe-loader" id="iframeLoader">
+            <div class="spinner"></div>
+            <div class="loader-text">Загрузка страницы...</div>
+            <div class="loader-status" id="loaderStatus">Инициализация</div>
+        </div>
+        <iframe id="siteIframe" class="site-iframe" title="Превью сайта" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"></iframe>
+    </div>
+</div>
+
+<div class="edit-panel" id="editPanel" role="dialog" aria-modal="true" aria-label="Редактирование">
+    <div class="edit-panel-header">
+        <h3><span id="editTitle">Редактирование</span><span class="key-badge" id="editKey"></span></h3>
+        <button class="edit-panel-close" id="closePanelBtn" aria-label="Закрыть">✕</button>
+    </div>
+    <div class="edit-panel-body" id="editPanelContent"></div>
+    <div class="edit-panel-actions">
+        <button class="toolbar-btn btn-secondary" id="cancelBtn">Отмена</button>
+        <button class="toolbar-btn primary" id="applyBtn">Применить</button>
+    </div>
+</div>
+
+<div class="calc-panel" id="calcPanel">
+    <div class="calc-panel-inner">
+        <div class="calc-panel-header">
+            <h2><i class="fas fa-calculator" style="color:#F40009;"></i> Настройки калькулятора</h2>
+            <button class="edit-panel-close" id="calcPanelClose" aria-label="Закрыть">✕</button>
+        </div>
+        <div class="calc-panel-body" id="calcPanelBody">
+            <div class="calc-panel-loading">Загрузка настроек из репозитория...</div>
+        </div>
+        <div class="calc-panel-footer">
+            <button class="toolbar-btn btn-secondary" id="calcPanelCancel">Отмена</button>
+            <button class="toolbar-btn primary" id="calcPanelSave"><i class="fas fa-cloud-upload-alt"></i> Сохранить в GitHub</button>
+        </div>
+    </div>
+</div>
+
+<div class="status-bar" id="statusBar" role="status" aria-live="polite"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
