@@ -23,9 +23,6 @@
         </div>
         <button class="btn" id="loginBtn">Войти</button>
         <div class="error-msg" id="loginError" role="alert"></div>
-        <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer" class="help-link">
-            <i class="fas fa-external-link-alt"></i> Создать fine-grained токен (один репозиторий, Contents: Read and write)
-        </a>
     </div>
 </div>
 
@@ -35,7 +32,6 @@
             <div class="app-title">
                 <i class="fas fa-magic" style="color: #F40009;"></i>
                 <span id="projectNameHeader" style="font-weight: 600; margin-left: 8px;">Редактор</span>
-                <span id="repoNameHeader" style="color: #888; font-weight: 400; margin-left: 8px; font-size: 13px;"></span>
             </div>
             <span class="page-indicator" id="pageIndicatorBox" title="Текущая страница"><i class="fas fa-file"></i> <span id="currentPageIndicator">index.html</span></span>
             <span class="deploy-badge" id="deployBadge" title="Статус деплоя. Клик — перепроверить."></span>
@@ -48,7 +44,6 @@
                 <button class="toolbar-btn" id="openSiteBtn" title="Открыть текущую страницу в новой вкладке"><i class="fas fa-external-link-alt"></i> Открыть сайт</button>
                 <button class="toolbar-btn" id="checkBtn" title="Проверить токен"><i class="fas fa-shield-alt"></i> Проверить</button>
                 <button class="toolbar-btn" id="reloadBtn" title="Обновить превью"><i class="fas fa-sync"></i> Обновить</button>
-                <button class="toolbar-btn" id="calcBtn" title="Настройки калькулятора (цены, материалы, работы)"><i class="fas fa-calculator"></i> Калькулятор</button>
                 <button class="toolbar-btn warning" id="cleanBtn" title="Удалить все метки data-edit и data-img из текущей страницы"><i class="fas fa-broom"></i> Очистить метки</button>
                 <button class="toolbar-btn" id="resetBtn" title="Подготовить текущую страницу заново"><i class="fas fa-redo"></i> Переподготовить</button>
                 <button class="toolbar-btn" id="logoutBtn" title="Выйти" aria-label="Выйти"><i class="fas fa-sign-out-alt"></i></button>
@@ -95,22 +90,6 @@
     <div class="edit-panel-actions">
         <button class="toolbar-btn btn-secondary" id="cancelBtn">Отмена</button>
         <button class="toolbar-btn primary" id="applyBtn">Применить</button>
-    </div>
-</div>
-
-<div class="calc-panel" id="calcPanel">
-    <div class="calc-panel-inner">
-        <div class="calc-panel-header">
-            <h2><i class="fas fa-calculator" style="color:#F40009;"></i> Настройки калькулятора</h2>
-            <button class="edit-panel-close" id="calcPanelClose" aria-label="Закрыть">✕</button>
-        </div>
-        <div class="calc-panel-body" id="calcPanelBody">
-            <div class="calc-panel-loading">Загрузка настроек из репозитория...</div>
-        </div>
-        <div class="calc-panel-footer">
-            <button class="toolbar-btn btn-secondary" id="calcPanelCancel">Отмена</button>
-            <button class="toolbar-btn primary" id="calcPanelSave"><i class="fas fa-cloud-upload-alt"></i> Сохранить в GitHub</button>
-        </div>
     </div>
 </div>
 

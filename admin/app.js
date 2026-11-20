@@ -36,7 +36,6 @@ let deployPollGen = 0;
 const API = `https://api.github.com/repos/${CMS_CONFIG.owner}/${CMS_CONFIG.repo}`;
 
 $('projectNameHeader').textContent = CMS_CONFIG.projectName || 'Редактор';
-$('repoNameHeader').textContent = `· ${CMS_CONFIG.owner}/${CMS_CONFIG.repo}`;
 
 function saveCurrentFile() { ls.set('cms_currentFile', currentFile); }
 
@@ -717,14 +716,12 @@ function hookIframe() {
 
     d.addEventListener('keydown', ev => {
         if (ev.key !== 'Escape') return;
-        if ($('calcPanel').classList.contains('active')) { closeCalcPanel(); return; }
         if ($('editPanel').classList.contains('active')) { closePanel(); }
     }, true);
 }
 
 document.addEventListener('keydown', e => {
     if (e.key !== 'Escape') return;
-    if ($('calcPanel').classList.contains('active')) { closeCalcPanel(); return; }
     if ($('editPanel').classList.contains('active')) { closePanel(); }
 });
 
@@ -1278,159 +1275,6 @@ async function resetSite() {
     $('progressLog').style.display = 'none';
     $('errorDetails').innerHTML = '';
 }
-
-/* ═══════════════════════════════════════════════════════ */
-/* ПАНЕЛЬ НАСТРОЕК КАЛЬКУЛЯТОРА                           */
-/* ═══════════════════════════════════════════════════════ */
-let calcConfigData = null;
-let calcConfigSha = null;
-const CALC_CONFIG_PATH = 'calc-config.js';
-
-function parseCalcConfig(text) {
-    try {
-        const fn = new Function(text + '; return (typeof CALC_CONFIG !== "undefined") ? CALC_CONFIG : ((typeof window !== "undefined") ? window.CALC_CONFIG : null);');
-        return fn();
-    } catch (e) { return null; }
-}
-
-function isValidCalcConfig(c) {
-    return !!c
-        && Array.isArray(c.types)
-        && Array.isArray(c.materials)
-        && Array.isArray(c.works)
-        && c.discount && typeof c.discount === 'object'
-        && c.area && typeof c.area === 'object';
-}
-
-function serializeCalcConfig(config) {
-    return '// ═══════════════════════════════════════════════════════\n' +
-           '// НАСТРОЙКИ КАЛЬКУЛЯТОРА РЕМОНТА\n' +
-           '// Отредактировано через админку: ' + new Date().toLocaleString('ru-RU') + '\n' +
-           '// Не меняйте структуру (ключи), только значения!\n' +
-           '// ═══════════════════════════════════════════════════════\n\n' +
-           'const CALC_CONFIG = ' + JSON.stringify(config, null, 4) + ';\n';
-}
-
-async function loadCalcConfig() {
-    calcConfigData = null;
-    calcConfigSha = null;
-    try {
-        const f = await getFile(CALC_CONFIG_PATH);
-        calcConfigSha = f.sha;
-        const parsed = parseCalcConfig(f.text);
-        if (!parsed) throw new Error('Не удалось разобрать структуру файла');
-        if (!isValidCalcConfig(parsed)) throw new Error('Структура calc-config.js некорректна (ожидаются types/materials/works/discount/area)');
-        calcConfigData = parsed;
-        renderCalcPanel();
-    } catch (e) {
-        if (e.status === 404) {
-            $('calcPanelBody').innerHTML = '<div class="calc-panel-error">Файл <code>calc-config.js</code> не найден в корне репозитория.<br>Создайте его согласно инструкции.</div>';
-        } else {
-            $('calcPanelBody').innerHTML = '<div class="calc-panel-error">Ошибка загрузки: ' + esc(e.message) + '</div>';
-        }
-    }
-}
-
-function renderCalcPanel() {
-    const c = calcConfigData;
-    let html = '';
-
-    html += '<div class="calc-section"><h3>🔨 Типы ремонта (цена за м²)</h3>';
-    c.types.forEach((t, i) => {
-        html += `<div class="calc-field-row">
-            <label>${esc(t.icon || '')} ${esc(t.name)}</label>
-            <input type="number" data-section="types" data-index="${i}" data-field="price" value="${t.price}">
-        </div>`;
-    });
-    html += '</div>';
-
-    html += '<div class="calc-section"><h3>🧱 Материалы (% к базовой стоимости)</h3>';
-    c.materials.forEach((m, i) => {
-        html += `<div class="calc-field-row">
-            <label>${esc(m.name)}</label>
-            <input type="number" data-section="materials" data-index="${i}" data-field="percent" value="${m.percent}">
-        </div>`;
-    });
-    html += '</div>';
-
-    html += '<div class="calc-section"><h3>⚙️ Дополнительные работы (фиксированная цена)</h3>';
-    c.works.forEach((w, i) => {
-        html += `<div class="calc-field-row">
-            <label>${esc(w.name)}</label>
-            <input type="number" data-section="works" data-index="${i}" data-field="price" value="${w.price}">
-        </div>`;
-    });
-    html += '</div>';
-
-    html += '<div class="calc-section"><h3>🎁 Скидка</h3>';
-    html += `<div class="calc-field-row"><label>Порог срабатывания (₽)</label>
-        <input type="number" data-section="discount" data-field="threshold" value="${c.discount.threshold}"></div>`;
-    html += `<div class="calc-field-row"><label>Размер скидки (%)</label>
-        <input type="number" data-section="discount" data-field="percent" value="${c.discount.percent}"></div>`;
-    html += '</div>';
-
-    html += '<div class="calc-section"><h3>📐 Диапазон площади (м²)</h3>';
-    html += `<div class="calc-field-row"><label>Минимум</label>
-        <input type="number" data-section="area" data-field="min" value="${c.area.min}"></div>`;
-    html += `<div class="calc-field-row"><label>Максимум</label>
-        <input type="number" data-section="area" data-field="max" value="${c.area.max}"></div>`;
-    html += `<div class="calc-field-row"><label>По умолчанию</label>
-        <input type="number" data-section="area" data-field="default" value="${c.area.default}"></div>`;
-    html += '</div>';
-
-    $('calcPanelBody').innerHTML = html;
-
-    $('calcPanelBody').querySelectorAll('input').forEach(inp => {
-        inp.addEventListener('input', e => {
-            const { section, index, field } = e.target.dataset;
-            const val = parseInt(e.target.value) || 0;
-            if (index !== undefined) {
-                calcConfigData[section][parseInt(index)][field] = val;
-            } else {
-                calcConfigData[section][field] = val;
-            }
-        });
-    });
-}
-
-async function saveCalcConfig() {
-    if (!calcConfigData) {
-        return showStatus('Настройки не загружены — сохранение отменено', 'error');
-    }
-    if (!isValidCalcConfig(calcConfigData)) {
-        return showStatus('Структура настроек повреждена — сохранение отменено', 'error');
-    }
-    const btn = $('calcPanelSave');
-    btn.disabled = true;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Сохранение...';
-    try {
-        const content = serializeCalcConfig(calcConfigData);
-        await putFile(CALC_CONFIG_PATH, b64e(content), calcConfigSha, 'Обновление цен калькулятора через админку');
-        showStatus('✓ Цены сохранены! Обновятся на сайте через 1-2 минуты.', 'success');
-        closeCalcPanel();
-    } catch (e) {
-        const i = interpretError(e.status, e.body);
-        showStatus('✗ ' + i.title + ': ' + i.fix, 'error');
-    } finally {
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Сохранить в GitHub';
-    }
-}
-
-function openCalcPanel() {
-    $('calcPanel').classList.add('active');
-    $('calcPanelBody').innerHTML = '<div class="calc-panel-loading">Загрузка настроек из репозитория...</div>';
-    loadCalcConfig();
-}
-
-function closeCalcPanel() {
-    $('calcPanel').classList.remove('active');
-}
-
-$('calcBtn').addEventListener('click', openCalcPanel);
-$('calcPanelClose').addEventListener('click', closeCalcPanel);
-$('calcPanelCancel').addEventListener('click', closeCalcPanel);
-$('calcPanelSave').addEventListener('click', saveCalcConfig);
 
 $('checkBtn').addEventListener('click', checkToken);
 $('checkBtn2').addEventListener('click', checkToken);
