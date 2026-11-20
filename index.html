@@ -1,726 +1,539 @@
 <!DOCTYPE html>
-<html lang="ru"><head>
-    <meta charset="UTF-8">
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
 <meta name="cms-deploy-id" content="dmwhk09dvmfjwb8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="google" content="notranslate">
-    <meta http-equiv="Content-Language" content="ru">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="google" content="notranslate">
+<title>Спецтехника и эвакуатор — демонтаж, земляные работы, вывоз мусора | Подача в день обращения</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="description" content="Аренда спецтехники с оператором: эвакуатор с манипулятором, экскаватор-погрузчик. Демонтаж, земляные работы, вывоз мусора, благоустройство. Подача техники в день обращения.">
+<link rel="canonical" href="https://specteh.piarbook.ru/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Спецтехника для ваших задач — подача в день обращения">
+<meta property="og:description" content="Эвакуатор с манипулятором и экскаватор-погрузчик. Демонтаж, земляные работы, вывоз мусора.">
+<meta property="og:image" content="https://specteh.piarbook.ru/images/hero-evacuator.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0D0D0D">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+    --bg-dark: #0D0D0D;
+    --bg-card: #161616;
+    --accent: #FFD400;
+    --accent-dark: #E0BB00;
+    --text-main: #FFFFFF;
+    --text-muted: #A6A6A6;
+    --border: rgba(255, 212, 0, 0.25);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { font-family: 'Montserrat', sans-serif; background: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+h1, h2, h3, h4 { font-family: 'Oswald', sans-serif; text-transform: uppercase; line-height: 1.15; text-wrap: balance; }
+a { color: inherit; text-decoration: none; transition: color 0.3s; }
+img { max-width: 100%; height: auto; display: block; }
+section { scroll-margin-top: 80px; padding: 40px 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; }
 
-    <title>Спецтехника и эвакуатор — демонтаж, земляные работы, вывоз мусора | Подача в день обращения</title>
-    <link rel="icon" type="image/x-icon" href="favicon.png">
-    <meta name="description" content="Аренда спецтехники с оператором: эвакуатор с манипулятором, экскаватор-погрузчик. Демонтаж, земляные работы, вывоз мусора, благоустройство. Подача техники в день обращения.">
-    <link rel="canonical" href="https://spectehnika-demo.ru/">
+.animate-on-scroll { opacity: 0; transform: translateY(40px); transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+.animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+.services-grid .service-item:nth-child(1) { transition-delay: 0.1s; }
+.services-grid .service-item:nth-child(2) { transition-delay: 0.2s; }
+.services-grid .service-item:nth-child(3) { transition-delay: 0.3s; }
+.services-grid .service-item:nth-child(4) { transition-delay: 0.4s; }
+.why-grid .why-item:nth-child(1) { transition-delay: 0.1s; }
+.why-grid .why-item:nth-child(2) { transition-delay: 0.2s; }
+.why-grid .why-item:nth-child(3) { transition-delay: 0.3s; }
+.gallery-grid .gallery-item:nth-child(1) { transition-delay: 0.1s; }
+.gallery-grid .gallery-item:nth-child(2) { transition-delay: 0.2s; }
+.gallery-grid .gallery-item:nth-child(3) { transition-delay: 0.3s; }
+.gallery-grid .gallery-item:nth-child(4) { transition-delay: 0.4s; }
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Спецтехника для ваших задач — подача в день обращения">
-    <meta property="og:description" content="Эвакуатор с манипулятором и экскаватор-погрузчик. Демонтаж, земляные работы, вывоз мусора.">
-    <meta property="og:image" content="https://spectehnika-demo.ru/images/hero-evacuator.jpg">
-    <meta name="twitter:card" content="summary_large_image">
+.bg-fixed { position: fixed; inset: 0; z-index: -2; background: var(--bg-dark); }
+.bg-fixed::before { content: ''; position: absolute; inset: 0; background: url('images/bg-texture.jpg') center/cover; opacity: 0.12; filter: blur(3px); }
+.bg-fixed::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 15% 20%, rgba(255, 212, 0, 0.07) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(22, 22, 22, 0.9) 0%, transparent 55%); }
 
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <meta name="theme-color" content="#0D0D0D">
+.img-wrapper { position: relative; background: var(--bg-card); overflow: hidden; border-radius: 8px; border: 1px solid var(--border); }
+.placeholder-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 3; text-align: center; padding: 12px; background: rgba(13, 13, 13, 0.95); border: 1px dashed var(--accent); border-radius: 8px; max-width: 90%; transition: opacity 0.3s; }
+.placeholder-label strong { display: block; font-family: monospace; font-size: 12px; color: var(--accent); margin-bottom: 4px; cursor: pointer; text-decoration: underline; word-break: break-all; }
+.placeholder-label span { font-size: 11px; color: var(--text-muted); }
+.img-wrapper img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; border-radius: 8px; cursor: zoom-in; transition: transform 0.5s ease; }
 
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(13, 13, 13, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 12px 0; }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.logo { font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.nav-links a:hover { color: var(--accent); }
+.nav-phone { font-weight: 700; font-size: 15px; white-space: nowrap; }
+.nav-phone:hover { color: var(--accent); }
+.burger { display: none; background: none; border: none; color: var(--accent); font-size: 24px; cursor: pointer; }
 
-    <style>
-        :root {
-            --bg-dark: #0D0D0D;
-            --bg-card: #161616;
-            --accent: #FFD400;
-            --accent-dark: #E0BB00;
-            --text-main: #FFFFFF;
-            --text-muted: #A6A6A6;
-            --border: rgba(255, 212, 0, 0.25);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: 'Oswald', sans-serif; text-transform: uppercase; line-height: 1.15; text-wrap: balance; }
-        a { color: inherit; text-decoration: none; transition: color 0.3s; }
-        img { max-width: 100%; height: auto; display: block; }
-        section { scroll-margin-top: 80px; padding: 40px 0; }
-        
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 20px; 
-            width: 100%; 
-        }
+.hero { position: relative; padding: 120px 0 60px; overflow: hidden; min-height: 560px; display: flex; align-items: center; }
+.hero::before { content: ''; position: absolute; inset: 0; background: url('images/hero-evacuator.jpg') right center / cover no-repeat; opacity: 0.95; z-index: -1; }
+.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.88) 42%, rgba(13,13,13,0.35) 70%, rgba(13,13,13,0.05) 100%), linear-gradient(180deg, rgba(13,13,13,0.4) 0%, transparent 30%, transparent 70%, var(--bg-dark) 100%); z-index: -1; }
+.hero-content { max-width: 720px; position: relative; z-index: 2; text-align: left; }
+.hero h1 { font-size: clamp(2.4rem, 6.5vw, 4.4rem); font-weight: 700; letter-spacing: 1px; }
+.hero h1 span { display: block; color: var(--accent); font-size: clamp(1.5rem, 3.8vw, 2.4rem); margin-top: 8px; }
+.hero-services { margin: 20px 0 24px; color: var(--text-muted); font-size: 1rem; }
+.hero-services b { color: var(--text-main); font-weight: 600; }
+.hero-services .sep { color: var(--accent); margin: 0 4px; }
 
-        /* === АНИМАЦИИ ПРИ СКРОЛЛЕ === */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Задержки для каскадного появления элементов в сетке */
-        .services-grid .service-item:nth-child(1) { transition-delay: 0.1s; }
-        .services-grid .service-item:nth-child(2) { transition-delay: 0.2s; }
-        .services-grid .service-item:nth-child(3) { transition-delay: 0.3s; }
-        .services-grid .service-item:nth-child(4) { transition-delay: 0.4s; }
-        .why-grid .why-item:nth-child(1) { transition-delay: 0.1s; }
-        .why-grid .why-item:nth-child(2) { transition-delay: 0.2s; }
-        .why-grid .why-item:nth-child(3) { transition-delay: 0.3s; }
-        .gallery-grid .gallery-item:nth-child(1) { transition-delay: 0.1s; }
-        .gallery-grid .gallery-item:nth-child(2) { transition-delay: 0.2s; }
-        .gallery-grid .gallery-item:nth-child(3) { transition-delay: 0.3s; }
-        .gallery-grid .gallery-item:nth-child(4) { transition-delay: 0.4s; }
+.hero-badge { display: inline-flex; align-items: center; gap: 14px; border: 1px solid var(--accent); border-radius: 10px; padding: 12px 18px; margin-bottom: 24px; background: rgba(13, 13, 13, 0.55); animation: pulse-glow 3s infinite ease-in-out; }
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 212, 0, 0.4); }
+    50% { box-shadow: 0 0 0 12px rgba(255, 212, 0, 0); }
+}
+.hero-badge i { font-size: 26px; color: var(--accent); }
+.hero-badge strong { display: block; font-family: 'Oswald', sans-serif; text-transform: uppercase; color: var(--accent); font-size: 15px; letter-spacing: 1px; }
+.hero-badge span { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); }
+.hero-arrows { position: absolute; top: 92px; right: 44px; z-index: 2; display: flex; gap: 4px; color: var(--accent); font-size: 30px; }
 
-        /* Фон */
-        .bg-fixed { position: fixed; inset: 0; z-index: -2; background: var(--bg-dark); }
-        .bg-fixed::before {
-            content: ''; position: absolute; inset: 0;
-            background: url('images/bg-texture.jpg') center/cover;
-            opacity: 0.12; filter: blur(3px);
-        }
-        .bg-fixed::after {
-            content: ''; position: absolute; inset: 0;
-            background: radial-gradient(circle at 15% 20%, rgba(255, 212, 0, 0.07) 0%, transparent 45%),
-                        radial-gradient(circle at 85% 75%, rgba(22, 22, 22, 0.9) 0%, transparent 55%);
-        }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 30px; background: var(--accent); color: #0D0D0D; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; border: 2px solid var(--accent); border-radius: 6px; cursor: pointer; transition: all 0.3s; }
+.btn:hover { background: transparent; color: var(--accent); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 212, 0, 0.2); }
+.btn-outline { background: transparent; color: var(--text-main); border-color: var(--text-main); }
+.btn-outline:hover { background: var(--text-main); color: #0D0D0D; transform: translateY(-2px); }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-        /* Заглушки фото */
-        .img-wrapper { position: relative; background: var(--bg-card); overflow: hidden; border-radius: 8px; border: 1px solid var(--border); }
-        .placeholder-label {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            z-index: 3; text-align: center; padding: 12px;
-            background: rgba(13, 13, 13, 0.95); border: 1px dashed var(--accent);
-            border-radius: 8px; max-width: 90%; transition: opacity 0.3s;
-        }
-        .placeholder-label strong {
-            display: block; font-family: monospace; font-size: 12px; color: var(--accent);
-            margin-bottom: 4px; cursor: pointer; text-decoration: underline; word-break: break-all;
-        }
-        .placeholder-label span { font-size: 11px; color: var(--text-muted); }
-        .img-wrapper img { 
-            position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; 
-            z-index: 2; border-radius: 8px; cursor: zoom-in; transition: transform 0.5s ease;
-        }
+.services-head { display: grid; grid-template-columns: 0.9fr 2.1fr; gap: 24px; align-items: center; margin-bottom: 8px; }
+.skew-box { background: var(--accent); color: #0D0D0D; transform: skew(-10deg); padding: 22px 26px; border-radius: 4px; }
+.skew-box > div { transform: skew(10deg); }
+.skew-box h2 { font-size: clamp(1.2rem, 2.6vw, 1.7rem); font-weight: 700; }
+.services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.service-item { text-align: center; padding: 24px 12px; border-left: 1px solid var(--border); border-radius: 8px; background: var(--bg-card); transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; }
+.service-item:first-child { border-left: none; }
+.service-item:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 212, 0, 0.1); background-color: rgba(255, 212, 0, 0.05); border-color: var(--accent); }
+.service-item i { font-size: 34px; color: var(--accent); margin-bottom: 16px; transition: transform 0.3s ease; }
+.service-item:hover i { transform: scale(1.15) rotate(5deg); }
+.service-item h3 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.5px; }
 
-        /* Навигация */
-        nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(13, 13, 13, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 12px 0; }
-        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-        .logo { font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .logo span { color: var(--accent); }
-        .nav-links { display: flex; gap: 24px; list-style: none; }
-        .nav-links a { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .nav-links a:hover { color: var(--accent); }
-        .nav-phone { font-weight: 700; font-size: 15px; white-space: nowrap; }
-        .nav-phone:hover { color: var(--accent); }
-        .burger { display: none; background: none; border: none; color: var(--accent); font-size: 24px; cursor: pointer; }
+.section-title { font-size: clamp(1.5rem, 3.5vw, 2.2rem); text-align: center; margin-bottom: 8px; }
+.section-title span { color: var(--accent); }
+.section-sub { text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 28px; font-size: 0.95rem; }
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.gallery-item { height: 260px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
+.gallery-item:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); border-color: var(--accent); }
+.gallery-item:hover img { transform: scale(1.08); }
+.gallery-tag { position: absolute; left: 0; bottom: 16px; z-index: 4; background: var(--accent); color: #0D0D0D; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; padding: 6px 16px 6px 12px; border-radius: 0 4px 4px 0; transition: background 0.3s ease, color 0.3s ease; }
+.gallery-item:hover .gallery-tag { background: #fff; color: #0D0D0D; }
 
-        /* Hero */
-        .hero {
-            position: relative; padding: 120px 0 60px; overflow: hidden;
-            min-height: 560px; display: flex; align-items: center;
-        }
-        .hero::before {
-            content: ''; position: absolute; inset: 0;
-            background: url('images/hero-evacuator.jpg') right center / cover no-repeat;
-            opacity: 0.95; z-index: -1;
-        }
-        .hero::after {
-            content: ''; position: absolute; inset: 0;
-            background:
-                linear-gradient(90deg, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.88) 42%, rgba(13,13,13,0.35) 70%, rgba(13,13,13,0.05) 100%),
-                linear-gradient(180deg, rgba(13,13,13,0.4) 0%, transparent 30%, transparent 70%, var(--bg-dark) 100%);
-            z-index: -1;
-        }
-        .hero-content { 
-            max-width: 720px; 
-            position: relative; 
-            z-index: 2; 
-            text-align: left;
-        }
-        .hero h1 { font-size: clamp(2.4rem, 6.5vw, 4.4rem); font-weight: 700; letter-spacing: 1px; }
-        .hero h1 span { display: block; color: var(--accent); font-size: clamp(1.5rem, 3.8vw, 2.4rem); margin-top: 8px; }
-        .hero-services { margin: 20px 0 24px; color: var(--text-muted); font-size: 1rem; }
-        .hero-services b { color: var(--text-main); font-weight: 600; }
-        .hero-services .sep { color: var(--accent); margin: 0 4px; }
-        
-        /* Анимация пульсации для бейджа */
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 14px;
-            border: 1px solid var(--accent); border-radius: 10px; padding: 12px 18px;
-            margin-bottom: 24px; background: rgba(13, 13, 13, 0.55);
-            animation: pulse-glow 3s infinite ease-in-out;
-        }
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 212, 0, 0.4); }
-            50% { box-shadow: 0 0 0 12px rgba(255, 212, 0, 0); }
-        }
-        .hero-badge i { font-size: 26px; color: var(--accent); }
-        .hero-badge strong { display: block; font-family: 'Oswald', sans-serif; text-transform: uppercase; color: var(--accent); font-size: 15px; letter-spacing: 1px; }
-        .hero-badge span { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); }
-        .hero-arrows {
-            position: absolute; top: 92px; right: 44px; z-index: 2;
-            display: flex; gap: 4px; color: var(--accent); font-size: 30px;
-        }
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-            padding: 14px 30px; background: var(--accent); color: #0D0D0D;
-            font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 15px;
-            text-transform: uppercase; letter-spacing: 1px; border: 2px solid var(--accent);
-            border-radius: 6px; cursor: pointer; transition: all 0.3s;
-        }
-        .btn:hover { background: transparent; color: var(--accent); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 212, 0, 0.2); }
-        .btn-outline { background: transparent; color: var(--text-main); border-color: var(--text-main); }
-        .btn-outline:hover { background: var(--text-main); color: #0D0D0D; transform: translateY(-2px); }
-        .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.why-item { display: flex; align-items: center; gap: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+.why-item:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 212, 0, 0.1); border-color: var(--accent); }
+.why-item i { font-size: 28px; color: var(--accent); border: 1px solid var(--accent); border-radius: 8px; padding: 12px; flex-shrink: 0; transition: all 0.3s ease; }
+.why-item:hover i { background: var(--accent); color: var(--bg-dark); }
+.why-item h3 { font-size: 1rem; font-weight: 600; }
 
-        /* Услуги с анимацией и тенями */
-        .services-head { display: grid; grid-template-columns: 0.9fr 2.1fr; gap: 24px; align-items: center; margin-bottom: 8px; }
-        .skew-box {
-            background: var(--accent); color: #0D0D0D; transform: skew(-10deg);
-            padding: 22px 26px; border-radius: 4px;
-        }
-        .skew-box > div { transform: skew(10deg); }
-        .skew-box h2 { font-size: clamp(1.2rem, 2.6vw, 1.7rem); font-weight: 700; }
-        .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-        .service-item { 
-            text-align: center; padding: 24px 12px; border-left: 1px solid var(--border); 
-            border-radius: 8px; background: var(--bg-card);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-        }
-        .service-item:first-child { border-left: none; }
-        .service-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 212, 0, 0.1);
-            background-color: rgba(255, 212, 0, 0.05);
-            border-color: var(--accent);
-        }
-        .service-item i { font-size: 34px; color: var(--accent); margin-bottom: 16px; transition: transform 0.3s ease; }
-        .service-item:hover i { transform: scale(1.15) rotate(5deg); }
-        .service-item h3 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.5px; }
+.order-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); }
+.order-text h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 12px; }
+.order-text h2 span { color: var(--accent); }
+.order-text p { color: var(--text-muted); margin-bottom: 20px; }
+.order-phone { font-family: 'Oswald', sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--accent); display: inline-block; margin-bottom: 16px; transition: transform 0.3s; }
+.order-phone:hover { transform: scale(1.05); }
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+.form-group input, .form-group textarea { width: 100%; padding: 12px 14px; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 6px; color: var(--text-main); font-family: inherit; font-size: 16px; transition: border-color 0.3s, box-shadow 0.3s; }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255, 212, 0, 0.1); }
+.form-group textarea { resize: vertical; min-height: 80px; }
+.checkbox-group { display: flex; align-items: flex-start; gap: 10px; font-size: 0.8rem; color: var(--text-muted); margin: 12px 0 16px; }
+.checkbox-group input { margin-top: 3px; accent-color: var(--accent); }
+.form-status { margin-top: 12px; font-size: 0.9rem; text-align: center; display: none; padding: 10px; border-radius: 6px; }
+.form-status.success { color: #7ED957; background: rgba(126, 217, 87, 0.1); display: block; }
+.form-status.error { color: #FF6B6B; background: rgba(255, 107, 107, 0.1); display: block; }
 
-        /* Галерея с активными фото */
-        .section-title { font-size: clamp(1.5rem, 3.5vw, 2.2rem); text-align: center; margin-bottom: 8px; }
-        .section-title span { color: var(--accent); }
-        .section-sub { text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 28px; font-size: 0.95rem; }
-        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .gallery-item { height: 260px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
-        .gallery-item:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-            border-color: var(--accent);
-        }
-        .gallery-item:hover img { transform: scale(1.08); }
-        .gallery-tag {
-            position: absolute; left: 0; bottom: 16px; z-index: 4;
-            background: var(--accent); color: #0D0D0D;
-            font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 13px;
-            text-transform: uppercase; letter-spacing: 1px;
-            padding: 6px 16px 6px 12px; border-radius: 0 4px 4px 0;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-        .gallery-item:hover .gallery-tag { background: #fff; color: #0D0D0D; }
+.contacts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; transition: transform 0.3s; }
+.contact-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.contact-card i { font-size: 26px; color: var(--accent); margin-bottom: 10px; }
+.contact-card h4 { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px; font-weight: 500; }
+.contact-card a, .contact-card p { font-size: 1.05rem; font-weight: 600; }
 
-        /* Преимущества с анимацией и тенями */
-        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-        .why-item {
-            display: flex; align-items: center; gap: 16px;
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: 8px; padding: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-        .why-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 212, 0, 0.1);
-            border-color: var(--accent);
-        }
-        .why-item i {
-            font-size: 28px; color: var(--accent);
-            border: 1px solid var(--accent); border-radius: 8px; padding: 12px; flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-        .why-item:hover i {
-            background: var(--accent);
-            color: var(--bg-dark);
-        }
-        .why-item h3 { font-size: 1rem; font-weight: 600; }
+.map-wrapper { margin-top: 32px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); height: 400px; position: relative; background: var(--bg-card); }
+.map-wrapper iframe { width: 100%; height: 100%; border: none; filter: grayscale(100%) invert(92%) contrast(85%); transition: filter 0.3s ease; }
+.map-wrapper:hover iframe { filter: grayscale(80%) invert(92%) contrast(85%); }
 
-        /* Заявка */
-        .order-box {
-            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
-            padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        }
-        .order-text h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 12px; }
-        .order-text h2 span { color: var(--accent); }
-        .order-text p { color: var(--text-muted); margin-bottom: 20px; }
-        .order-phone { font-family: 'Oswald', sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--accent); display: inline-block; margin-bottom: 16px; transition: transform 0.3s; }
-        .order-phone:hover { transform: scale(1.05); }
-        .form-group { margin-bottom: 14px; }
-        .form-group label { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .form-group input, .form-group textarea {
-            width: 100%; padding: 12px 14px; background: var(--bg-dark);
-            border: 1px solid var(--border); border-radius: 6px;
-            color: var(--text-main); font-family: inherit; font-size: 16px;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255, 212, 0, 0.1); }
-        .form-group textarea { resize: vertical; min-height: 80px; }
-        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; font-size: 0.8rem; color: var(--text-muted); margin: 12px 0 16px; }
-        .checkbox-group input { margin-top: 3px; accent-color: var(--accent); }
-        .form-status { margin-top: 12px; font-size: 0.9rem; text-align: center; display: none; padding: 10px; border-radius: 6px; }
-        .form-status.success { color: #7ED957; background: rgba(126, 217, 87, 0.1); display: block; }
-        .form-status.error { color: #FF6B6B; background: rgba(255, 107, 107, 0.1); display: block; }
+footer { background: #080808; border-top: 1px solid var(--border); padding: 24px 0; text-align: center; }
+footer p { font-size: 0.8rem; color: var(--text-muted); }
 
-        /* Контакты */
-        .contacts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-        .contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; transition: transform 0.3s; }
-        .contact-card:hover { transform: translateY(-4px); border-color: var(--accent); }
-        .contact-card i { font-size: 26px; color: var(--accent); margin-bottom: 10px; }
-        .contact-card h4 { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px; font-weight: 500; }
-        .contact-card a, .contact-card p { font-size: 1.05rem; font-weight: 600; }
+.float-cta { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 999; background: rgba(13, 13, 13, 0.97); border-top: 1px solid var(--accent); padding: 10px 16px; gap: 10px; }
+.float-cta .btn { flex: 1; padding: 12px 10px; font-size: 13px; }
 
-        /* Яндекс Карта (тёмная тема) */
-        .map-wrapper {
-            margin-top: 32px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            height: 400px;
-            position: relative;
-            background: var(--bg-card);
-        }
-        .map-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            /* Магия: делаем светлую карту Яндекса тёмной, чтобы она вписалась в дизайн */
-            filter: grayscale(100%) invert(92%) contrast(85%);
-            transition: filter 0.3s ease;
-        }
-        .map-wrapper:hover iframe {
-            /* При наведении чуть возвращаем цвет для интерактивности */
-            filter: grayscale(80%) invert(92%) contrast(85%);
-        }
+.lightbox { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(0, 0, 0, 0.95); align-items: center; justify-content: center; padding: 20px; }
+.lightbox.active { display: flex; }
+.lightbox img { max-width: 92vw; max-height: 88vh; border-radius: 8px; }
+.lightbox-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #fff; font-size: 32px; cursor: pointer; transition: transform 0.3s; }
+.lightbox-close:hover { transform: rotate(90deg); color: var(--accent); }
 
-        /* Footer */
-        footer { background: #080808; border-top: 1px solid var(--border); padding: 24px 0; text-align: center; }
-        footer p { font-size: 0.8rem; color: var(--text-muted); }
-
-        /* Плавающая CTA */
-        .float-cta {
-            display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 999;
-            background: rgba(13, 13, 13, 0.97); border-top: 1px solid var(--accent);
-            padding: 10px 16px; gap: 10px;
-        }
-        .float-cta .btn { flex: 1; padding: 12px 10px; font-size: 13px; }
-
-        /* Лайтбокс */
-        .lightbox {
-            display: none; position: fixed; inset: 0; z-index: 2000;
-            background: rgba(0, 0, 0, 0.95); align-items: center; justify-content: center; padding: 20px;
-        }
-        .lightbox.active { display: flex; }
-        .lightbox img { max-width: 92vw; max-height: 88vh; border-radius: 8px; }
-        .lightbox-close {
-            position: absolute; top: 16px; right: 20px; background: none; border: none;
-            color: #fff; font-size: 32px; cursor: pointer; transition: transform 0.3s;
-        }
-        .lightbox-close:hover { transform: rotate(90deg); color: var(--accent); }
-
-        /* Адаптив */
-        @media (max-width: 960px) {
-            .services-head { grid-template-columns: 1fr; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .service-item { border-left: none; border-top: 1px solid var(--border); padding-top: 24px; }
-            .order-box { grid-template-columns: 1fr; }
-            .hero-arrows { top: 84px; right: 24px; font-size: 24px; }
-        }
-        @media (max-width: 640px) {
-            .nav-links {
-                display: none; position: absolute; top: 100%; left: 0; right: 0;
-                background: var(--bg-card); flex-direction: column; padding: 16px 20px; gap: 12px;
-                border-bottom: 1px solid var(--border);
-            }
-            .nav-links.active { display: flex; }
-            .nav-phone { display: none; }
-            .burger { display: block; }
-            .why-grid, .contacts-grid { grid-template-columns: 1fr; }
-            .gallery-grid { grid-template-columns: 1fr; }
-            .gallery-item { height: 220px; }
-            .float-cta { display: flex; }
-            body { padding-bottom: 64px; }
-            section { padding: 32px 0; }
-            .hero { min-height: auto; padding: 100px 0 44px; }
-            .hero::before { background-position: center 35%; opacity: 0.45; }
-            .hero::after {
-                background: linear-gradient(180deg, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.82) 60%, var(--bg-dark) 100%);
-            }
-            .hero-arrows { display: none; }
-            .map-wrapper { height: 300px; margin-top: 24px; }
-        }
-        @media (max-width: 480px) {
-            .services-grid { grid-template-columns: 1fr; }
-            .hero { padding: 96px 0 36px; }
-            .order-box { padding: 22px; }
-        }
-        @media (max-width: 360px) {
-            .hero h1 { font-size: 1.9rem; }
-            .btn { padding: 12px 20px; font-size: 13px; }
-        }
-        @media (hover: none) {
-            .btn:active { transform: scale(0.98); }
-            .gallery-item img { cursor: default; }
-        }
-    </style>
+@media (max-width: 960px) {
+    .services-head { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .service-item { border-left: none; border-top: 1px solid var(--border); padding-top: 24px; }
+    .order-box { grid-template-columns: 1fr; }
+    .hero-arrows { top: 84px; right: 24px; font-size: 24px; }
+}
+@media (max-width: 640px) {
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-card); flex-direction: column; padding: 16px 20px; gap: 12px; border-bottom: 1px solid var(--border); }
+    .nav-links.active { display: flex; }
+    .nav-phone { display: none; }
+    .burger { display: block; }
+    .why-grid, .contacts-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item { height: 220px; }
+    .float-cta { display: flex; }
+    body { padding-bottom: 64px; }
+    section { padding: 32px 0; }
+    .hero { min-height: auto; padding: 100px 0 44px; }
+    .hero::before { background-position: center 35%; opacity: 0.45; }
+    .hero::after { background: linear-gradient(180deg, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.82) 60%, var(--bg-dark) 100%); }
+    .hero-arrows { display: none; }
+    .map-wrapper { height: 300px; margin-top: 24px; }
+}
+@media (max-width: 480px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .hero { padding: 96px 0 36px; }
+    .order-box { padding: 22px; }
+}
+@media (max-width: 360px) {
+    .hero h1 { font-size: 1.9rem; }
+    .btn { padding: 12px 20px; font-size: 13px; }
+}
+@media (hover: none) {
+    .btn:active { transform: scale(0.98); }
+    .gallery-item img { cursor: default; }
+}
+</style>
 </head>
 <body>
-    <div class="bg-fixed"></div>
+<div class="bg-fixed"></div>
 
-    <nav>
-        <div class="nav-inner">
-            <a href="#home" class="logo"><span data-edit="auto_1">Спец</span><span><span data-edit="auto_2">Техника</span></span></a>
-            <button class="burger" aria-label="Открыть меню" onclick="document.querySelector('.nav-links').classList.toggle('active')">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#services"><span data-edit="auto_3">Услуги</span></a></li>
-                <li><a href="#works"><span data-edit="auto_4">Наши работы</span></a></li>
-                <li><a href="#why"><span data-edit="auto_5">Преимущества</span></a></li>
-                <li><a href="#order"><span data-edit="auto_6">Заявка</span></a></li>
-                <li><a href="#contacts"><span data-edit="auto_7">Контакты</span></a></li>
-            </ul>
-            <a href="tel:+79113321111" class="nav-phone"><i class="fas fa-phone" style="color: var(--accent);"></i><span data-edit="auto_8"> +7 (911) 332-11-11</span></a>
-        </div>
-    </nav>
+<nav>
+<div class="nav-inner">
+    <a href="#home" class="logo"><span data-edit="auto_1">Спец</span><span><span data-edit="auto_2">Техника</span></span></a>
+    <button class="burger" aria-label="Открыть меню" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+        <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-links">
+        <li><a href="#services"><span data-edit="auto_3">Услуги</span></a></li>
+        <li><a href="#works"><span data-edit="auto_4">Наши работы</span></a></li>
+        <li><a href="#why"><span data-edit="auto_5">Преимущества</span></a></li>
+        <li><a href="#order"><span data-edit="auto_6">Заявка</span></a></li>
+        <li><a href="#contacts"><span data-edit="auto_7">Контакты</span></a></li>
+    </ul>
+    <a href="tel:+79113321111" class="nav-phone"><i class="fas fa-phone" style="color: var(--accent);"></i><span data-edit="auto_8"> +7 (911) 332-11-11</span></a>
+</div>
+</nav>
 
-    <header class="hero" id="home">
-        <div class="hero-arrows" aria-hidden="true">
-            <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <h1><span data-edit="auto_9">Спецтехника </span><span><span data-edit="auto_10">для ваших задач</span></span></h1>
-                <p class="hero-services">
-                    <b><span data-edit="auto_11">Демонтаж</span></b><span class="sep">•</span><b><span data-edit="auto_12">Земляные работы</span></b><span class="sep">•</span><b><span data-edit="auto_13">Вывоз</span></b><span class="sep">•</span><b><span data-edit="auto_14">Благоустройство</span></b><span class="sep">•</span><b><span data-edit="auto_15">Аренда спецтехники</span></b>
-                </p>
-                <div class="hero-badge animate-on-scroll">
-                    <i class="fas fa-stopwatch"></i>
-                    <div>
-                        <strong><span data-edit="auto_16">Оперативно</span></strong>
-                        <span><span data-edit="auto_17">Подача техники в день обращения</span></span>
-                    </div>
-                </div>
-                <div class="hero-actions animate-on-scroll">
-                    <a href="#order" class="btn"><i class="fas fa-paper-plane"></i><span data-edit="auto_18"> Оставить заявку</span></a>
-                    <a href="tel:+79113321111" class="btn btn-outline"><i class="fas fa-phone"></i><span data-edit="auto_19"> Позвонить</span></a>
-                </div>
+<header class="hero" id="home">
+<div class="hero-arrows" aria-hidden="true">
+    <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i>
+</div>
+<div class="container">
+    <div class="hero-content">
+        <h1><span data-edit="auto_9">Спецтехника </span><span><span data-edit="auto_10">для ваших задач</span></span></h1>
+        <p class="hero-services">
+            <b><span data-edit="auto_11">Демонтаж</span></b><span class="sep">•</span><b><span data-edit="auto_12">Земляные работы</span></b><span class="sep">•</span><b><span data-edit="auto_13">Вывоз</span></b><span class="sep">•</span><b><span data-edit="auto_14">Благоустройство</span></b><span class="sep">•</span><b><span data-edit="auto_15">Аренда спецтехники</span></b>
+        </p>
+        <div class="hero-badge animate-on-scroll">
+            <i class="fas fa-stopwatch"></i>
+            <div>
+                <strong><span data-edit="auto_16">Оперативно</span></strong>
+                <span><span data-edit="auto_17">Подача техники в день обращения</span></span>
             </div>
         </div>
-    </header>
-
-    <section id="services">
-        <div class="container">
-            <div class="services-head">
-                <div class="skew-box animate-on-scroll">
-                    <div><h2><span data-edit="auto_20">Решаем задачи любой сложности</span></h2></div>
-                </div>
-                <div class="services-grid">
-                    <div class="service-item animate-on-scroll">
-                        <i class="fas fa-hammer"></i>
-                        <h3><span data-edit="auto_21">Демонтаж любых объектов</span></h3>
-                    </div>
-                    <div class="service-item animate-on-scroll">
-                        <i class="fas fa-dumpster"></i>
-                        <h3><span data-edit="auto_22">Вывоз мусора и отходов</span></h3>
-                    </div>
-                    <div class="service-item animate-on-scroll">
-                        <i class="fas fa-tractor"></i>
-                        <h3><span data-edit="auto_23">Земляные работы</span></h3>
-                    </div>
-                    <div class="service-item animate-on-scroll">
-                        <i class="fas fa-gears"></i>
-                        <h3><span data-edit="auto_24">Аренда с оператором</span></h3>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-actions animate-on-scroll">
+            <a href="#order" class="btn"><i class="fas fa-paper-plane"></i><span data-edit="auto_18"> Оставить заявку</span></a>
+            <a href="tel:+79113321111" class="btn btn-outline"><i class="fas fa-phone"></i><span data-edit="auto_19"> Позвонить</span></a>
         </div>
-    </section>
-
-    <section id="works">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll"><span data-edit="auto_25">Спецтехника </span><span><span data-edit="auto_26">в деле</span></span></h2>
-            <p class="section-sub animate-on-scroll"><span data-edit="auto_27">Реальные объекты нашей команды: от демонтажа старых построек до подготовки участка</span></p>
-            <div class="gallery-grid">
-                <div class="img-wrapper gallery-item animate-on-scroll" data-img="images/work-demontazh.jpg" data-img-id="img_1">
-                    <div class="placeholder-label">
-                        <strong data-copy="images/work-demontazh.jpg"><span data-edit="auto_28">images/work-demontazh.jpg</span></strong>
-                        <span><span data-edit="auto_29">Фото: демонтаж</span></span>
-                    </div>
-                    <img src="images/work-demontazh.jpg" alt="Демонтаж объекта экскаватором">
-                    <div class="gallery-tag"><span data-edit="auto_30">Демонтаж</span></div>
-                </div>
-                <div class="img-wrapper gallery-item animate-on-scroll" data-img="images/work-uchastok.jpg" data-img-id="img_2">
-                    <div class="placeholder-label">
-                        <strong data-copy="images/work-uchastok.jpg"><span data-edit="auto_31">images/work-uchastok.jpg</span></strong>
-                        <span><span data-edit="auto_32">Фото: подготовка участка</span></span>
-                    </div>
-                    <img src="images/work-uchastok.jpg" alt="Подготовка участка, вывоз мусора">
-                    <div class="gallery-tag"><span data-edit="auto_33">Подготовка участка</span></div>
-                </div>
-                <div class="img-wrapper gallery-item animate-on-scroll" data-img="images/work-zemlyanye.jpg" data-img-id="img_3">
-                    <div class="placeholder-label">
-                        <strong data-copy="images/work-zemlyanye.jpg"><span data-edit="auto_34">images/work-zemlyanye.jpg</span></strong>
-                        <span><span data-edit="auto_35">Фото: земляные работы</span></span>
-                    </div>
-                    <img src="images/work-zemlyanye.jpg" alt="Земляные работы экскаватором-погрузчиком">
-                    <div class="gallery-tag"><span data-edit="auto_36">Земляные работы</span></div>
-                </div>
-                <div class="img-wrapper gallery-item animate-on-scroll" data-img="images/work-tehnika.jpg" data-img-id="img_4">
-                    <div class="placeholder-label">
-                        <strong data-copy="images/work-tehnika.jpg"><span data-edit="auto_37">images/work-tehnika.jpg</span></strong>
-                        <span><span data-edit="auto_38">Фото: спецтехника в деле</span></span>
-                    </div>
-                    <img src="images/work-tehnika.jpg" alt="Экскаватор-погрузчик за работой">
-                    <div class="gallery-tag"><span data-edit="auto_39">Спецтехника в деле</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="why">
-        <div class="container">
-            <div class="why-grid">
-                <div class="why-item animate-on-scroll">
-                    <i class="fas fa-users"></i>
-                    <h3><span data-edit="auto_40">Опытная команда</span></h3>
-                </div>
-                <div class="why-item animate-on-scroll">
-                    <i class="fas fa-clipboard-list"></i>
-                    <h3><span data-edit="auto_41">Честные цены и прозрачные условия</span></h3>
-                </div>
-                <div class="why-item animate-on-scroll">
-                    <i class="fas fa-calendar-check"></i>
-                    <h3><span data-edit="auto_42">Соблюдаем сроки</span></h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="order">
-        <div class="container">
-            <div class="order-box animate-on-scroll">
-                <div class="order-text">
-                    <h2><span data-edit="auto_43">Свяжитесь </span><span><span data-edit="auto_44">с нами</span></span></h2>
-                    <p><span data-edit="auto_45">Проконсультируем и подберём решение под ваши задачи! Расскажем, какая техника нужна, и посчитаем стоимость за 15 минут.</span></p>
-                    <a href="tel:+79113321111" class="order-phone"><span data-edit="auto_46">+7 (911) 332-11-11</span></a>
-                    <div>
-                        <a href="tel:+79113321111" class="btn"><i class="fas fa-phone"></i><span data-edit="auto_47"> Позвонить сейчас</span></a>
-                    </div>
-                </div>
-                <form id="lead-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                    <div class="form-group">
-                        <label for="name"><span data-edit="auto_48">Ваше имя</span></label>
-                        <input type="text" id="name" name="name" required="" placeholder="Иван" autocomplete="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone"><span data-edit="auto_49">Телефон *</span></label>
-                        <input type="tel" id="phone" name="phone" required="" placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel">
-                    </div>
-                    <div class="form-group">
-                        <label for="task"><span data-edit="auto_50">Какая техника / задача?</span></label>
-                        <textarea id="task" name="task" placeholder="Например: экскаватор-погрузчик, вывезти грунт"></textarea>
-                    </div>
-                    <label class="checkbox-group">
-                        <input type="checkbox" required="" checked="">
-                        <span><span data-edit="auto_51">Согласен на обработку персональных данных</span></span>
-                    </label>
-                    <button type="submit" class="btn" style="width: 100%;"><i class="fas fa-paper-plane"></i><span data-edit="auto_52"> Отправить заявку</span></button>
-                    <div class="form-status"></div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacts">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll"><span data-edit="auto_53">Контакты</span></h2>
-            <p class="section-sub animate-on-scroll"><span data-edit="auto_54">Работаем без выходных, подача техники в день обращения</span></p>
-            <div class="contacts-grid">
-                <div class="contact-card animate-on-scroll">
-                    <i class="fas fa-phone"></i>
-                    <h4><span data-edit="auto_55">Телефон</span></h4>
-                    <a href="tel:+79113321111"><span data-edit="auto_56">+7 (911) 332-11-11</span></a>
-                </div>
-                <div class="contact-card animate-on-scroll">
-                    <i class="fas fa-location-dot"></i>
-                    <h4><span data-edit="auto_57">Зона работы</span></h4>
-                    <p><span data-edit="auto_58">Санкт-Петербург и область</span></p>
-                </div>
-                <div class="contact-card animate-on-scroll">
-                    <i class="fas fa-clock"></i>
-                    <h4><span data-edit="auto_59">Режим работы</span></h4>
-                    <p><span data-edit="auto_60">Ежедневно: 8:00 – 22:00</span></p>
-                </div>
-            </div>
-            
-            <!-- Яндекс Карта -->
-            <div class="map-wrapper animate-on-scroll">
-                <iframe src="https://yandex.ru/map-widget/v1/?ll=30.315833%2C59.939095&amp;z=12&amp;l=map" allowfullscreen="true"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p><span data-edit="auto_61">© 2026 СпецТехника. Аренда спецтехники, демонтаж, земляные работы, вывоз мусора.</span></p>
-        </div>
-    </footer>
-
-    <div class="float-cta">
-        <a href="tel:+79113321111" class="btn"><i class="fas fa-phone"></i><span data-edit="auto_62"> Позвонить</span></a>
-        <a href="#order" class="btn btn-outline"><i class="fas fa-paper-plane"></i><span data-edit="auto_63"> Заявка</span></a>
     </div>
+</div>
+</header>
 
-    <div class="lightbox" id="lightbox" role="dialog" aria-label="Просмотр фото">
-        <button class="lightbox-close" aria-label="Закрыть просмотр">×</button>
-        <img src="" alt="Фото работ">
+<section id="services">
+<div class="container">
+    <div class="services-head">
+        <div class="skew-box animate-on-scroll">
+            <div><h2><span data-edit="auto_20">Решаем задачи любой сложности</span></h2></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-item animate-on-scroll">
+                <i class="fas fa-hammer"></i>
+                <h3><span data-edit="auto_21">Демонтаж любых объектов</span></h3>
+            </div>
+            <div class="service-item animate-on-scroll">
+                <i class="fas fa-dumpster"></i>
+                <h3><span data-edit="auto_22">Вывоз мусора и отходов</span></h3>
+            </div>
+            <div class="service-item animate-on-scroll">
+                <i class="fas fa-tractor"></i>
+                <h3><span data-edit="auto_23">Земляные работы</span></h3>
+            </div>
+            <div class="service-item animate-on-scroll">
+                <i class="fas fa-gears"></i>
+                <h3><span data-edit="auto_24">Аренда с оператором</span></h3>
+            </div>
+        </div>
     </div>
+</div>
+</section>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "СпецТехника",
-      "description": "Аренда спецтехники с оператором: эвакуатор с манипулятором, экскаватор-погрузчик. Демонтаж, земляные работы, вывоз мусора.",
-      "telephone": "+7-911-332-11-11",
-      "areaServed": "Санкт-Петербург и Ленинградская область",
-      "openingHours": "Mo-Su 08:00-22:00"
+<section id="works">
+<div class="container">
+    <h2 class="section-title animate-on-scroll"><span data-edit="auto_25">Спецтехника </span><span><span data-edit="auto_26">в деле</span></span></h2>
+    <p class="section-sub animate-on-scroll"><span data-edit="auto_27">Реальные объекты нашей команды: от демонтажа старых построек до подготовки участка</span></p>
+    <div class="gallery-grid">
+        <div class="img-wrapper gallery-item animate-on-scroll" data-img="images/work-demontazh.jpg" data-img-id="img_1">
+            <div class="placeholder-label">
+                <strong data-copy="images/work-demontazh.jpg"><span data-edit="auto_28">images/work-demontazh.jpg</span></strong>
+                <span><span data-edit="auto_29">Фото: демонтаж</span></span>
+            </div>
+            <img src="images/work-demontazh.jpg" alt="Демонтаж объекта экскаватором">
+            <div class="gallery-tag"><span data-edit="auto_30">Демонтаж</span></div>
+        </div>
+        <div class="img-wrapper gallery-item animate-on-scroll" data-img="images/work-uchastok.jpg" data-img-id="img_2">
+            <div class="placeholder-label">
+                <strong data-copy="images/work-uchastok.jpg"><span data-edit="auto_31">images/work-uchastok.jpg</span></strong>
+                <span><span data-edit="auto_32">Фото: подготовка участка</span></span>
+            </div>
+            <img src="images/work-uchastok.jpg" alt="Подготовка участка, вывоз мусора">
+            <div class="gallery-tag"><span data-edit="auto_33">Подготовка участка</span></div>
+        </div>
+        <div class="img-wrapper gallery-item animate-on-scroll" data-img="images/work-zemlyanye.jpg" data-img-id="img_3">
+            <div class="placeholder-label">
+                <strong data-copy="images/work-zemlyanye.jpg"><span data-edit="auto_34">images/work-zemlyanye.jpg</span></strong>
+                <span><span data-edit="auto_35">Фото: земляные работы</span></span>
+            </div>
+            <img src="images/work-zemlyanye.jpg" alt="Земляные работы экскаватором-погрузчиком">
+            <div class="gallery-tag"><span data-edit="auto_36">Земляные работы</span></div>
+        </div>
+        <div class="img-wrapper gallery-item animate-on-scroll" data-img="images/work-tehnika.jpg" data-img-id="img_4">
+            <div class="placeholder-label">
+                <strong data-copy="images/work-tehnika.jpg"><span data-edit="auto_37">images/work-tehnika.jpg</span></strong>
+                <span><span data-edit="auto_38">Фото: спецтехника в деле</span></span>
+            </div>
+            <img src="images/work-tehnika.jpg" alt="Экскаватор-погрузчик за работой">
+            <div class="gallery-tag"><span data-edit="auto_39">Спецтехника в деле</span></div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section id="why">
+<div class="container">
+    <div class="why-grid">
+        <div class="why-item animate-on-scroll">
+            <i class="fas fa-users"></i>
+            <h3><span data-edit="auto_40">Опытная команда</span></h3>
+        </div>
+        <div class="why-item animate-on-scroll">
+            <i class="fas fa-clipboard-list"></i>
+            <h3><span data-edit="auto_41">Честные цены и прозрачные условия</span></h3>
+        </div>
+        <div class="why-item animate-on-scroll">
+            <i class="fas fa-calendar-check"></i>
+            <h3><span data-edit="auto_42">Соблюдаем сроки</span></h3>
+        </div>
+    </div>
+</div>
+</section>
+
+<section id="order">
+<div class="container">
+    <div class="order-box animate-on-scroll">
+        <div class="order-text">
+            <h2><span data-edit="auto_43">Свяжитесь </span><span><span data-edit="auto_44">с нами</span></span></h2>
+            <p><span data-edit="auto_45">Проконсультируем и подберём решение под ваши задачи! Расскажем, какая техника нужна, и посчитаем стоимость за 15 минут.</span></p>
+            <a href="tel:+79113321111" class="order-phone"><span data-edit="auto_46">+7 (911) 332-11-11</span></a>
+            <div>
+                <a href="tel:+79113321111" class="btn"><i class="fas fa-phone"></i><span data-edit="auto_47"> Позвонить сейчас</span></a>
+            </div>
+        </div>
+        <form id="lead-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form-group">
+                <label for="name"><span data-edit="auto_48">Ваше имя</span></label>
+                <input type="text" id="name" name="name" required placeholder="Иван" autocomplete="name">
+            </div>
+            <div class="form-group">
+                <label for="phone"><span data-edit="auto_49">Телефон *</span></label>
+                <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel">
+            </div>
+            <div class="form-group">
+                <label for="task"><span data-edit="auto_50">Какая техника / задача?</span></label>
+                <textarea id="task" name="task" placeholder="Например: экскаватор-погрузчик, вывезти грунт"></textarea>
+            </div>
+            <label class="checkbox-group">
+                <input type="checkbox" required checked>
+                <span><span data-edit="auto_51">Согласен на обработку персональных данных</span></span>
+            </label>
+            <button type="submit" class="btn" style="width: 100%;"><i class="fas fa-paper-plane"></i><span data-edit="auto_52"> Отправить заявку</span></button>
+            <div class="form-status"></div>
+        </form>
+    </div>
+</div>
+</section>
+
+<section id="contacts">
+<div class="container">
+    <h2 class="section-title animate-on-scroll"><span data-edit="auto_53">Контакты</span></h2>
+    <p class="section-sub animate-on-scroll"><span data-edit="auto_54">Работаем без выходных, подача техники в день обращения</span></p>
+    <div class="contacts-grid">
+        <div class="contact-card animate-on-scroll">
+            <i class="fas fa-phone"></i>
+            <h4><span data-edit="auto_55">Телефон</span></h4>
+            <a href="tel:+79113321111"><span data-edit="auto_56">+7 (911) 332-11-11</span></a>
+        </div>
+        <div class="contact-card animate-on-scroll">
+            <i class="fas fa-location-dot"></i>
+            <h4><span data-edit="auto_57">Зона работы</span></h4>
+            <p><span data-edit="auto_58">Санкт-Петербург и область</span></p>
+        </div>
+        <div class="contact-card animate-on-scroll">
+            <i class="fas fa-clock"></i>
+            <h4><span data-edit="auto_59">Режим работы</span></h4>
+            <p><span data-edit="auto_60">Ежедневно: 8:00 – 22:00</span></p>
+        </div>
+    </div>
+    <div class="map-wrapper animate-on-scroll">
+        <iframe src="https://yandex.ru/map-widget/v1/?ll=30.315833%2C59.939095&z=12&l=map" allowfullscreen="true"></iframe>
+    </div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+    <p><span data-edit="auto_61">© 2026 СпецТехника. Аренда спецтехники, демонтаж, земляные работы, вывоз мусора.</span></p>
+</div>
+</footer>
+
+<div class="float-cta">
+<a href="tel:+79113321111" class="btn"><i class="fas fa-phone"></i><span data-edit="auto_62"> Позвонить</span></a>
+<a href="#order" class="btn btn-outline"><i class="fas fa-paper-plane"></i><span data-edit="auto_63"> Заявка</span></a>
+</div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Просмотр фото">
+<button class="lightbox-close" aria-label="Закрыть просмотр">×</button>
+<img src="" alt="Фото работ">
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "СпецТехника",
+  "description": "Аренда спецтехники с оператором: эвакуатор с манипулятором, экскаватор-погрузчик. Демонтаж, земляные работы, вывоз мусора.",
+  "telephone": "+7-911-332-11-11",
+  "areaServed": "Санкт-Петербург и Ленинградская область",
+  "openingHours": "Mo-Su 08:00-22:00"
+}
+</script>
+
+<script>
+document.querySelectorAll('.img-wrapper img').forEach(img => {
+    if (img.complete && img.naturalHeight !== 0) {
+        const placeholder = img.parentElement.querySelector('.placeholder-label');
+        if (placeholder) placeholder.style.display = 'none';
+    } else {
+        img.addEventListener('load', function() {
+            const placeholder = this.parentElement.querySelector('.placeholder-label');
+            if (placeholder) placeholder.style.display = 'none';
+        });
+        img.addEventListener('error', function() {
+            console.warn('Не удалось загрузить:', this.src);
+        });
     }
-    </script>
+});
 
-    <script>
-        // 1. Умное управление заглушками
-        document.querySelectorAll('.img-wrapper img').forEach(img => {
-            if (img.complete && img.naturalHeight !== 0) {
-                const placeholder = img.parentElement.querySelector('.placeholder-label');
-                if (placeholder) placeholder.style.display = 'none';
-            } else {
-                img.addEventListener('load', function() {
-                    const placeholder = this.parentElement.querySelector('.placeholder-label');
-                    if (placeholder) placeholder.style.display = 'none';
-                });
-                img.addEventListener('error', function() {
-                    console.warn('⚠️ Не удалось загрузить:', this.src);
-                });
-            }
+document.querySelectorAll('[data-copy]').forEach(el => {
+    el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const fileName = e.target.getAttribute('data-copy').split('/').pop();
+        navigator.clipboard.writeText(fileName).then(() => {
+            const original = e.target.textContent;
+            e.target.textContent = 'Скопировано!';
+            setTimeout(() => e.target.textContent = original, 1500);
         });
+    });
+});
 
-        // 2. Копирование имени файла
-        document.querySelectorAll('[data-copy]').forEach(el => {
-            el.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const fileName = e.target.getAttribute('data-copy').split('/').pop();
-                navigator.clipboard.writeText(fileName).then(() => {
-                    const original = e.target.textContent;
-                    e.target.textContent = 'Скопировано!';
-                    setTimeout(() => e.target.textContent = original, 1500);
-                });
-            });
+document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('active'));
+});
+
+const phoneInput = document.getElementById('phone');
+phoneInput.addEventListener('input', (e) => {
+    let digits = e.target.value.replace(/\D/g, '');
+    if (digits.startsWith('8')) digits = '7' + digits.slice(1);
+    if (!digits.startsWith('7')) digits = '7' + digits;
+    digits = digits.slice(0, 11);
+    let result = '+7';
+    if (digits.length > 1) result += ' (' + digits.slice(1, 4);
+    if (digits.length >= 4) result += ') ' + digits.slice(4, 7);
+    if (digits.length >= 7) result += '-' + digits.slice(7, 9);
+    if (digits.length >= 9) result += '-' + digits.slice(9, 11);
+    e.target.value = result;
+});
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+    });
+});
+const closeLightbox = () => { lightbox.classList.remove('active'); lightboxImg.src = ''; };
+lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeLightbox();
+        document.querySelector('.nav-links').classList.remove('active');
+    }
+});
+
+const form = document.getElementById('lead-form');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const statusEl = form.querySelector('.form-status');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+    statusEl.className = 'form-status';
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form)
         });
+        if (response.ok) {
+            statusEl.textContent = '✓ Заявка отправлена! Перезвоним в течение 15 минут.';
+            statusEl.className = 'form-status success';
+            form.reset();
+        } else {
+            throw new Error('Ошибка отправки');
+        }
+    } catch (error) {
+        statusEl.textContent = 'Не удалось отправить. Позвоните нам: +7 (911) 332-11-11';
+        statusEl.className = 'form-status error';
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Отправить заявку';
+    }
+});
 
-        // 3. Мобильное меню
-        document.querySelectorAll('.nav-links a').forEach(a => {
-            a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('active'));
-        });
-
-        // 4. Маска телефона
-        const phoneInput = document.getElementById('phone');
-        phoneInput.addEventListener('input', (e) => {
-            let digits = e.target.value.replace(/\D/g, '');
-            if (digits.startsWith('8')) digits = '7' + digits.slice(1);
-            if (!digits.startsWith('7')) digits = '7' + digits;
-            digits = digits.slice(0, 11);
-            let result = '+7';
-            if (digits.length > 1) result += ' (' + digits.slice(1, 4);
-            if (digits.length >= 4) result += ') ' + digits.slice(4, 7);
-            if (digits.length >= 7) result += '-' + digits.slice(7, 9);
-            if (digits.length >= 9) result += '-' + digits.slice(9, 11);
-            e.target.value = result;
-        });
-
-        // 5. Лайтбокс
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = lightbox.querySelector('img');
-        document.querySelectorAll('.gallery-item img').forEach(img => {
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
-                lightbox.classList.add('active');
-            });
-        });
-        const closeLightbox = () => { lightbox.classList.remove('active'); lightboxImg.src = ''; };
-        lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
-        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeLightbox();
-                document.querySelector('.nav-links').classList.remove('active');
-            }
-        });
-
-        // 6. Отправка формы
-        const form = document.getElementById('lead-form');
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const statusEl = form.querySelector('.form-status');
-            const submitBtn = form.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
-            statusEl.className = 'form-status';
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    headers: { 'Accept': 'application/json' },
-                    body: new FormData(form)
-                });
-                if (response.ok) {
-                    statusEl.textContent = '✓ Заявка отправлена! Перезвоним в течение 15 минут.';
-                    statusEl.className = 'form-status success';
-                    form.reset();
-                } else {
-                    throw new Error('Ошибка отправки');
-                }
-            } catch (error) {
-                statusEl.textContent = 'Не удалось отправить. Позвоните нам: +7 (911) 332-11-11';
-                statusEl.className = 'form-status error';
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Отправить заявку';
-            }
-        });
-
-        // 7. Анимация появления элементов при скролле (Intersection Observer)
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
-
-
-</body></html>
+const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
